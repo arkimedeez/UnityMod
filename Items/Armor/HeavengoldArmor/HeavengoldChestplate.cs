@@ -1,7 +1,6 @@
 ﻿using arkimedeezMod.Items.Materials;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace arkimedeezMod.Items.Armor.HeavengoldArmor
@@ -22,8 +21,8 @@ namespace arkimedeezMod.Items.Armor.HeavengoldArmor
 
         public override void UpdateEquip(Player player)
         {
-            player.endurance += -10 / 100f;
-            player.GetDamage(DamageClass.Generic) += 10 / 100f;
+            player.endurance -= 0.1f; // 0.1f = 0.10f = 10%
+            player.GetDamage(DamageClass.Generic) *= 1.1f;
         }
 
         public override void AddRecipes()

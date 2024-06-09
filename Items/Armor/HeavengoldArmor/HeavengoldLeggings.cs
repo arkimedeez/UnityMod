@@ -22,7 +22,7 @@ namespace arkimedeezMod.Items.Armor.HeavengoldArmor
 
         public override void UpdateEquip(Player player)
         {
-            player.moveSpeed += 10 / 100f;
+            player.moveSpeed *= 1.1f;
         }
 
         public override void AddRecipes()

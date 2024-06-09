@@ -1,4 +1,5 @@
 ﻿using arkimedeezMod.DamageClasses;
+using arkimedeezMod.Items.Materials;
 using arkimedeezMod.Projectiles;
 using Microsoft.Xna.Framework;
 using System;
@@ -23,22 +24,30 @@ namespace arkimedeezMod.Items.Weapons.WrathOfTheHarpies
             Item.value = Item.sellPrice(gold: 1, silver: 50);
             Item.rare = ItemRarityID.Orange;
 
+            //Common stats 
+            Item.damage = 20;
+            Item.crit = 4;
+            Item.DamageType = ModContent.GetInstance<OmegaDamage>();
+
             // Use Properties
             Item.useTime = 3; // The item's use time in ticks (60 ticks == 1 second.)
             Item.useAnimation = 18; // The length of the item's use animation in ticks (60 ticks == 1 second.)
-            Item.useStyle = ItemUseStyleID.Shoot; // How you use the item (swinging, holding out, etc.)
-            Item.autoReuse = true; // Whether or not you can hold click to automatically use it again.
+            Item.useStyle = ItemUseStyleID.Shoot; // How you use the item (swinging, holding out, etc.)  
             Item.UseSound = SoundID.Item5; // The sound when the weapon is being used.
             Item.reuseDelay = 32;
-            Item.consumeAmmoOnLastShotOnly = true;
-            Item.crit = 4;
-            Item.damage = 20;
-            Item.shoot = ModContent.ProjectileType<FeatherProjectile>();
 
-            Item.DamageType = ModContent.GetInstance<OmegaDamage>();
+            //Shoot stats
+            Item.shoot = ModContent.ProjectileType<FeatherProjectile>();
+            Item.shootSpeed = 30f;
+
+            //Misc stats
+            Item.noMelee = true;
+            Item.autoReuse = true;  // Whether or not you can hold click to automatically use it again.
+            Item.consumeAmmoOnLastShotOnly = true;
+
         }
 
-        int abilityMode = 0;
+       // int abilityMode = 0;
 
         public override bool AltFunctionUse(Player player) => true;
 
@@ -56,11 +65,11 @@ namespace arkimedeezMod.Items.Weapons.WrathOfTheHarpies
                 Item.autoReuse = true; // Whether or not you can hold click to automatically use it again.
                 Item.UseSound = SoundID.Item5; // The sound when the weapon is being used.
                 Item.reuseDelay = 32;
-                Item.consumeAmmoOnLastShotOnly = true;
+   
                 Item.crit = 4;
                 Item.damage = 20;
                 Item.shoot = ModContent.ProjectileType<FeatherProjectile>();
-                Item.shootSpeed = 30f;
+               
             }
             else
             {
@@ -72,12 +81,11 @@ namespace arkimedeezMod.Items.Weapons.WrathOfTheHarpies
                     Item.useAnimation = 64; // The length of the item's use animation in ticks (60 ticks == 1 second.)
                     Item.useStyle = ItemUseStyleID.Shoot; // How you use the item (swinging, holding out, etc.)
                     Item.autoReuse = false; // Whether or not you can hold click to automatically use it again.
-                    Item.consumeAmmoOnLastShotOnly = true;
+                  
 
                     // Weapon Properties
                     Item.DamageType = ModContent.GetInstance<OmegaDamage>();
-                    Item.noMelee = true;
-                    Item.shootSpeed = 30f;
+                
                     UnityPlayer.OmegaChargeCurrent = 0;
                     Item.UseSound = new SoundStyle($"{nameof(arkimedeezMod)}/Assets/Audio/Gunshot3")
                     {
@@ -97,14 +105,8 @@ namespace arkimedeezMod.Items.Weapons.WrathOfTheHarpies
 
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
         {
-            if(ShootType == 0)
-            {
-                velocity = new Vector2(velocity.X, velocity.Y).RotatedByRandom(MathHelper.ToRadians(10));
-            }
-            else
-            {
-                velocity = new Vector2(velocity.X, velocity.Y).RotatedByRandom(MathHelper.ToRadians(50));
-            }
+            int deviation = ShootType == 0 ? 10 : 50;
+            velocity = new Vector2(velocity.X, velocity.Y).RotatedByRandom(MathHelper.ToRadians(deviation));
             Vector2 muzzleOffset = Vector2.Normalize(velocity) * 25f;
 
             if (Collision.CanHit(position, 0, 0, position + muzzleOffset, 0, 0))
@@ -118,7 +120,7 @@ namespace arkimedeezMod.Items.Weapons.WrathOfTheHarpies
             if (ShootType == 0)
             {
                 //Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<FeatherProjectile>(), damage, knockback, Main.myPlayer);
-                int v = Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<FeatherProjectile>(), damage, knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<FeatherProjectile>(), damage, knockback, Main.myPlayer);
                 return false; // return false to prevent original projectile from being shot
             }
             else
@@ -132,15 +134,13 @@ namespace arkimedeezMod.Items.Weapons.WrathOfTheHarpies
         // Please see Content/ExampleRecipes.cs for a detailed explanation of recipe creation.
 
         // This method lets you adjust position of the gun in the player's hands. Play with these values until it looks good with your graphics.
-        public override Vector2? HoldoutOffset()
-        {
-            return new Vector2(-6f, -2f);
-        }
+        public override Vector2? HoldoutOffset() => new Vector2(-6f, -2f);
+        
 
         public override void AddRecipes()
         {
             CreateRecipe()
-            .AddIngredient<Materials.HeavengoldBar>(8)
+            .AddIngredient<HeavengoldBar>(8)
             .AddIngredient(ItemID.Feather, 5)
             .AddTile(TileID.Anvils)
             .Register();

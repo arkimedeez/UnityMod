@@ -4,7 +4,6 @@ using arkimedeezMod.Items.Materials;
 using Terraria.DataStructures;
 using Terraria.ID;
 using Terraria.ModLoader;
-using arkimedeezMod.Projectiles;
 using arkimedeezMod.DamageClasses;
 using Terraria.Audio;
 
@@ -28,7 +27,7 @@ namespace arkimedeezMod.Items.Weapons.Aerokana
             Item.useAnimation = 20;
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.crit = 9;
-
+            Item.shootSpeed = 0;
             Item.knockBack = 7;  // The knockback of your sword, this is dynamically adjusted in the projectile code.
             Item.autoReuse = true; // This determines whether the weapon has autoswing
             Item.damage = 30; // The damage of your sword, this is dynamically adjusted in the projectile code.
@@ -48,19 +47,7 @@ namespace arkimedeezMod.Items.Weapons.Aerokana
         {
             if (player.altFunctionUse != 2)
             {
-                RightClickAbility = false;
-                Item.useTime = 20;
-                Item.useAnimation = 20;
-                Item.useStyle = ItemUseStyleID.Shoot;
-                Item.crit = 9;
-                Item.shootSpeed = 0;
-
-                Item.knockBack = 7;  // The knockback of your sword, this is dynamically adjusted in the projectile code.
-                Item.autoReuse = true; // This determines whether the weapon has autoswing
-                Item.damage = 30; // The damage of your sword, this is dynamically adjusted in the projectile code.
-                Item.DamageType = ModContent.GetInstance<OmegaDamage>();
-                Item.noMelee = true;  // This makes sure the item does not deal damage from the swinging animation
-                Item.noUseGraphic = true; // This makes sure the item does not get shown when the player swings his hand
+                RightClickAbility = false; 
 
                 Item.UseSound = SoundID.Item1;
                 Item.shoot = ModContent.ProjectileType<AerokanaProjectile>(); // The sword as a projectile
@@ -71,18 +58,6 @@ namespace arkimedeezMod.Items.Weapons.Aerokana
                 if (UnityPlayer.OmegaChargeCurrent == 100)
                 {
                     RightClickAbility = true;
-                    Item.useTime = 20;
-                    Item.useAnimation = 20;
-                    Item.useStyle = ItemUseStyleID.Shoot;
-                    Item.crit = 9;
-                    Item.shootSpeed = 0;
-
-                    Item.knockBack = 7;  // The knockback of your sword, this is dynamically adjusted in the projectile code.
-                    Item.autoReuse = true; // This determines whether the weapon has autoswing
-                    Item.damage = 30; // The damage of your sword, this is dynamically adjusted in the projectile code.
-                    Item.DamageType = ModContent.GetInstance<OmegaDamage>();
-                    Item.noMelee = true;  // This makes sure the item does not deal damage from the swinging animation
-                    Item.noUseGraphic = true; // This makes sure the item does not get shown when the player swings his hand
 
                     Item.UseSound = new SoundStyle($"{nameof(arkimedeezMod)}/Assets/Audio/SwordSlash2");
                     Item.shoot = ModContent.ProjectileType<AerokanaProjectile>(); // The sword as a projectile
@@ -90,7 +65,7 @@ namespace arkimedeezMod.Items.Weapons.Aerokana
                     Vector2 target = Main.screenPosition + new Vector2(Main.mouseX, Main.mouseY);
                     player.velocity = (target - player.position)/20;
 
-                    UnityPlayer.DodgeTimer = UnityPlayer.DodgeTimer + 100;
+                    UnityPlayer.DodgeTimer += 100;
                     UnityPlayer.OmegaChargeCurrent = 0;
                 }
                 else
@@ -104,26 +79,13 @@ namespace arkimedeezMod.Items.Weapons.Aerokana
 
         public override bool Shoot(Player player, EntitySource_ItemUse_WithAmmo source, Vector2 position, Vector2 velocity, int type, int damage, float knockback)
         {
-            if (RightClickAbility == true)
-            {
-                int v = Projectile.NewProjectile(source, position, velocity, type, damage * 5, knockback, Main.myPlayer, attackType);
-                attackType = 2; // Increment attackType to make sure next swing is different
-                comboExpireTimer = 0; // Every time the weapon is used, we reset this so the combo does not expire
-                return false; // return false to prevent original projectile from being shot
-            }
-            else
-            {
-                int v = Projectile.NewProjectile(source, position, velocity, type, damage, knockback, Main.myPlayer, attackType);
-                attackType = 2; // Increment attackType to make sure next swing is different
-                comboExpireTimer = 0; // Every time the weapon is used, we reset this so the combo does not expire
-                return false; // return false to prevent original projectile from being shot
-            }
+            Projectile.NewProjectile(source, position, velocity, type, damage * (RightClickAbility ? 5 : 1), knockback, Main.myPlayer, attackType);
+            attackType = 2; // Increment attackType to make sure next swing is different
+            comboExpireTimer = 0; // Every time the weapon is used, we reset this so the combo does not expire
+            return false; // return false to prevent original projectile from being shot
         }
 
-        public override bool MeleePrefix()
-        {
-            return true; // return true to allow weapon to have melee prefixes (e.g. Legendary)
-        }
+        public override bool MeleePrefix() => true; // return true to allow weapon to have melee prefixes (e.g. Legendary)
 
         public override void AddRecipes()
         {

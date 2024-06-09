@@ -1,8 +1,6 @@
 ﻿using arkimedeezMod.DamageClasses;
-using System;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace arkimedeezMod.Items.Accessories.DivineSheath
@@ -20,14 +18,8 @@ namespace arkimedeezMod.Items.Accessories.DivineSheath
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            if (UnityPlayer.OmegaWeaponHeldTimer > 0)
-            {
-                player.GetDamage(DamageClass.Generic) += (5 + UnityPlayer.OmegaChargeCurrent / 7) / 100f;
-            }
-            else
-            {
-                player.GetDamage(DamageClass.Generic) += 5 / 100f;
-            }
+            float bonus = UnityPlayer.OmegaWeaponHeldTimer > 0 ? UnityPlayer.OmegaChargeCurrent / 7 : 0;
+            player.GetDamage(DamageClass.Generic) += (5 + bonus) / 100f;
         }
     }
 }
