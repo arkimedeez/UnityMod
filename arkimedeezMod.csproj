@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk">
+  <Import Project="..\tModLoader.targets" />
+  <PropertyGroup>
+    <AssemblyName>arkimedeezMod</AssemblyName>
+    <TargetFramework>net6.0</TargetFramework>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Buffs\cooldown.png" />
+    <None Remove="Items\Aerokana.png" />
+    <None Remove="Items\Weapons\Aerokana\WindSlash.png" />
+    <None Remove="Items\Weapons\CorimsWarlockRevolver\CorimsWarlockRevolver.png" />
+    <None Remove="Items\Weapons\SkySplitter\SkySplitter.png" />
+    <None Remove="Projectiles\AerokanaSlash.png" />
+    <None Remove="Projectiles\SkySplitterSpear.png" />
+    <None Remove="Projectiles\WindSlash.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />
+  </ItemGroup>
+</Project>
