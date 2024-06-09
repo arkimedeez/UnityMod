@@ -11,6 +11,8 @@ namespace arkimedeezMod.Items.Armor.HeavengoldArmor
     [AutoloadEquip(EquipType.Legs)]
     public class HeavengoldLeggings : ModItem
     {
+        public int MovmentSpeedBonusPercent = 10;
+        public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(MovmentSpeedBonusPercent);
         public override void SetDefaults()
         {
             Item.width = 34; // Width of the item
@@ -22,7 +24,7 @@ namespace arkimedeezMod.Items.Armor.HeavengoldArmor
 
         public override void UpdateEquip(Player player)
         {
-            player.moveSpeed *= 1.1f;
+            player.moveSpeed *= 1 + (MovmentSpeedBonusPercent/100f);
         }
 
         public override void AddRecipes()

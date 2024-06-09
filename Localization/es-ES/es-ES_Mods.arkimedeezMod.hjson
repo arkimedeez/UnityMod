@@ -1,31 +1,30 @@
 # This file will automatically update with entries for new content after a build and reload
-DamageClasses.OmegaDamage.DisplayName: "[c/6035ff:omega damage]"
+DamageClasses.OmegaDamage.DisplayName: "[c/6035ff:daño omega]"
 
 Items: {
 	Aerokana: {
 		DisplayName: Aerokana
 		Tooltip:
 			'''
-			Swings around you in a wide circle.
-			[c/6035ff:Omega attacks] launch you towards your cursor. Your speed is determined by how far away the cursor is from you position.
-			During this dash, you swing the sword around you as normal, except it deals 10 times the damage.
-			You are also invulnerable while this dash is active, as well as shortly after.
-			[c/dfbd00:This weapon is contributed to Sangar, for helping me with my modding journey from the beginning.]
+			Se balancea a tu alrededor en un círculo amplio.
+			[c/6035ff:Ataque Omega] Haces una embestida hacia tu cursor. Tu velocidad está determinada por qué tan lejos está el cursor de tu posición.
+			Durante la embestida el daño es 10 veces mayor, además de darte un tiempo de inmunidad.
+			[c/dfbd00:Esta arma fué aportada por Sangar, por ayudarme en el inicio de mi aventura en el mundo del modding.]
 			'''
 	}
 
 	SkySplitter: {
-		DisplayName: Sky Splitter
+		DisplayName: Divisor de estelar
 		Tooltip:
 			'''
-			Spins a double sided spear around you.
-			[c/6035ff:Omega attacks] thrust forward a huge spear and an unstoppable beam.
-			[c/6035ff:Omega attacks] additionally increase mobility for a short amount of time.
+			Hace girar una lanza de dos puntas a tu alrededor.
+			[c/6035ff:Ataque Omega] Arremetes hacia adelante con una enorme lanza y un rayo imparable.
+			[c/6035ff:Ataque Omega] Adicionalmente, aumenta tu velocidad de movimiento.
 			'''
 	}
 
 	Projectiles: {
-		SkySplitterSpear.DisplayName: Sky Splitter Spear
+		SkySplitterSpear.DisplayName: Lanza del Divisor de estelar 
 		AerokanaProjectile.DisplayName: Aerokana Projectile
 	}
 
@@ -34,7 +33,7 @@ Items: {
 		Tooltip:
 			'''
 			Fires an innacurate spread of feathers.
-			Omega attacks create two seperate whirlpools of feathers on either side of you.
+			Ataque Omega create two seperate whirlpools of feathers on either side of you.
 			[c/dfbd00:This weapon is contributed to Alex Gaming, for being a great friend and being a goated Minecraft mod developer (check out his mod, Catastrophe!)]
 			'''
 	}
@@ -46,7 +45,7 @@ Items: {
 			Fires a sound wave that accelerates over time.
 			Every time the sound wave collides with a solid tile, it will ricochet and increase its damage significantly. This effect stacks with more ricochets.
 			It additionally can penetrate up to 10 times, but each ricohet decreases that amount by 1.
-			Omega attacks consume 100 health to release two waves that curve in opposite directions that can also penetrate and richocet.
+			Ataque Omega consume 100 health to release two waves that curve in opposite directions that can also penetrate and richocet.
 			[c/dfbd00:This weapon is contributed to Joise, for being a strong brother to help me live in Christ.]
 			'''
 	}
@@ -56,7 +55,7 @@ Items: {
 		Tooltip:
 			'''
 			A mighty blade that releases multiple stars with every swing.
-			Omega attacks produce a mighty explosion of hundreds of stars in all directions.
+			Ataque Omega produce a mighty explosion of hundreds of stars in all directions.
 			'''
 	}
 
@@ -103,7 +102,7 @@ Items: {
 		Tooltip:
 			'''
 			Looks can be deceiving.
-			Increases all damage by 15%, but halves all total life regeneration.
+			Increases all damage by 15%, but halves all total Regeneracióneration.
 			'''
 	}
 
@@ -132,19 +131,20 @@ Items: {
 
 	HeavengoldHelmet: {
 		DisplayName: Heavengold Helmet
-		Tooltip: {$CommonItemTooltip.PercentIncreasedDamage}.
-		SetBonus:
+		//Tooltip: +7% increased damage.
+		/*SetBonus:
 			'''
-			{$CommonItemTooltip.IncreasesMaxMinionsBy}
+			Increases maximum minion capacity by 2.
 			Increases mana regeneration significantly.
 			Increases melee attack speed by 15%.
 			Increase ranged critical strike chance by 15%.
-			'''
+
+			'''*/
 	}
 
 	HeavengoldLeggings: {
-		DisplayName: Heavengold Leggings
-		Tooltip: {$CommonItemTooltip.PercentIncreasedMovementSpeed}.
+		DisplayName: Perneras de Oro Divino
+		//Tooltip: {$CommonItemTooltip.PercentIncreasedMovementSpeed}.
 	}
 }
 
@@ -177,83 +177,87 @@ Projectiles: {
 
 Buffs: {
 	CorimsWarlockRevolverAbilityCooldown: {
-		DisplayName: Corim's Warlock Revolver Ability Cooldown
-		Description: Gotta put at least SOME effort into balancing this damn mod! (If you couldn't tell from the previous sentence, I really dislike balancing. I just want funny gun to be able to go pew pew)
+		DisplayName: Reutilización del Revólver brujo de Corim
+		Description:
+		'''
+		¡Tengo que poner al menos ALGO de esfuerzo para equilibrar este maldito mod! (Si no lo pudiste ver en la oración anterior, realmente no me gusta el equilibrio. Solo quiero que un arma divertida pueda ir al banco) 
+		(Nota del traductor: na,yo tampoco puse esfuerzo en traducir estaa descripción xd)
+		'''
 	}
 
 	LifeRegenI: {
-		DisplayName: Life Regen I
-		Description: Increased life regeneration
+		DisplayName: Regeneración I
+		Description: Aumenta la regeneración de vida
 	}
 
 	LifeRegenII: {
-		DisplayName: Life Regen II
-		Description: Increased life regeneration
+		DisplayName: Regeneración II
+		Description: Aumenta la regeneración de vida
 	}
 
 	LifeRegenIII: {
-		DisplayName: Life Regen III
-		Description: Increased life regeneration
+		DisplayName: Regeneración III
+		Description: Aumenta la regeneración de vida
 	}
 
 	LifeRegenIV: {
-		DisplayName: Life Regen IV
-		Description: Increased life regeneration
+		DisplayName: Regeneración IV
+		Description: Aumenta la regeneración de vida
 	}
 
 	LifeRegenV: {
-		DisplayName: Life Regen V
-		Description: Increased life regeneration
+		DisplayName: Regeneración V
+		Description: Aumenta la regeneración de vida
 	}
 
 	MaxHealthI: {
-		DisplayName: Max Health I
-		Description: Increased maximum health
+		DisplayName: Vitalidad I
+		Description: Aumenta la vida máxima
 	}
 
 	MaxHealthII: {
-		DisplayName: Max Health II
-		Description: Increased maximum health
+		DisplayName: Vitalidad II
+		Description: Aumenta la vida máxima
 	}
 
 	MaxHealthIII: {
-		DisplayName: Max Health III
-		Description: Increased maximum health
+		DisplayName: Vitalidad III
+		Description: Aumenta la vida máxima
 	}
 
 	MaxHealthIV: {
-		DisplayName: Max Health IV
-		Description: Increased maximum health
+		DisplayName: Vitalidad IV
+		Description: Aumenta la vida máxima
 	}
 
 	MaxHealthV: {
-		DisplayName: Max Health V
-		Description: Increased maximum health
+		DisplayName: Vitalidad V
+		Description: Aumenta la vida máxima
 	}
 
 	SpeedI: {
-		DisplayName: Speed I
-		Description: Increased movement speed, max movement speed, and acceleration
+		DisplayName: Velocidad I
+		Description: Aumenta la velocidad de movimiento y la aceleración
 	}
 
 	SpeedII: {
-		DisplayName: Speed II
-		Description: Increased movement speed, max movement speed, and acceleration
+		DisplayName: Velocidad II
+		Description: Aumenta la velocidad de movimiento y la aceleración
 	}
 
 	SpeedIII: {
-		DisplayName: Speed III
-		Description: Increased movement speed, max movement speed, and acceleration
+		DisplayName: Velocidad III
+		Description: Aumenta la velocidad de movimiento y la aceleración
 	}
 
 	SpeedIV: {
-		DisplayName: Speed IV
-		Description: Increased movement speed, max movement speed, and acceleration
+		DisplayName: Velocidad IV
+		Description: Aumenta la velocidad de movimiento y la aceleración
 	}
 
 	SpeedV: {
-		DisplayName: Speed V
-		Description: Increased movement speed, max movement speed, and acceleration
+		DisplayName: Velocidad V
+		Description: Aumenta la velocidad de movimiento y la aceleración
 	}
 }
 
@@ -285,12 +289,12 @@ Configs: {
 		}
 
 		OmegaBarXScreenPlacement: {
-			Label: Omega Bar X Screen Placement
+			Label: Pocición de la barra Omega (eje X)
 			Tooltip: ""
 		}
 
 		OmegaBarYScreenPlacement: {
-			Label: Omega Bar Y Screen Placement
+			Label: Pocición de la barra Omega (eje Y)
 			Tooltip: ""
 		}
 	}

@@ -13,14 +13,12 @@
     <None Remove="Items\Weapons\Aerokana\WindSlash.png" />
     <None Remove="Items\Weapons\CorimsWarlockRevolver\CorimsWarlockRevolver.png" />
     <None Remove="Items\Weapons\SkySplitter\SkySplitter.png" />
+    <None Remove="Localization\es-ES\es-ES_Mods.arkimedeezMod.hjson" />
     <None Remove="Projectiles\AerokanaSlash.png" />
     <None Remove="Projectiles\SkySplitterSpear.png" />
     <None Remove="Projectiles\WindSlash.png" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="tModLoader.CodeAssist" Version="0.1.*" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Localization\es-ES\" />
   </ItemGroup>
 </Project>
