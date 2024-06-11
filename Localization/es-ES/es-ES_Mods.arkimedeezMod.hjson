@@ -1,15 +1,15 @@
 # This file will automatically update with entries for new content after a build and reload
-DamageClasses.OmegaDamage.DisplayName: "[c/6035ff:daÒo omega]"
+DamageClasses.OmegaDamage.DisplayName: "[c/6035ff:da√±o omega]"
 
 Items: {
 	Aerokana: {
 		DisplayName: Aerokana
 		Tooltip:
 			'''
-			Se balancea a tu alrededor en un cÌrculo amplio.
-			[c/6035ff:Ataque Omega] Haces una embestida hacia tu cursor. Tu velocidad est· determinada por quÈ tan lejos est· el cursor de tu posiciÛn.
-			Durante la embestida el daÒo es 10 veces mayor, adem·s de darte un tiempo de inmunidad.
-			[c/dfbd00:Esta arma fuÈ aportada por Sangar, por ayudarme en el inicio de mi aventura en el mundo del modding.]
+			Se balancea a tu alrededor en un c√≠rculo amplio.
+			[c/6035ff:Ataque Omega] Haces una embestida hacia tu cursor. Tu velocidad est√° determinada por qu√© tan lejos est√° el cursor de tu posici√≥n.
+			Durante la embestida el da√±o es 10 veces mayor, adem√°s de darte un tiempo de inmunidad.
+			[c/dfbd00:Esta arma fu√© aportada por Sangar, por ayudarme en el inicio de mi aventura en el mundo del modding.]
 			'''
 	}
 
@@ -24,71 +24,73 @@ Items: {
 	}
 
 	Projectiles: {
-		SkySplitterSpear.DisplayName: Lanza del Divisor de estelar 
+		SkySplitterSpear.DisplayName: Lanza del Divisor de estelar
 		AerokanaProjectile.DisplayName: Aerokana Projectile
 	}
 
 	WrathOfTheHarpies: {
-		DisplayName: Wrath Of The Harpies
+		DisplayName: Ira De Las Arp√≠as
 		Tooltip:
 			'''
-			Fires an innacurate spread of feathers.
-			Ataque Omega create two seperate whirlpools of feathers on either side of you.
-			[c/dfbd00:This weapon is contributed to Alex Gaming, for being a great friend and being a goated Minecraft mod developer (check out his mod, Catastrophe!)]
+			Dispara una rafaga imprecisa de plumas
+
+			[c/6035ff:Ataque Omega] Crea dos grandes remolinos de plumas.
+			[c/dfbd00:Esta arma fu√© aportada por Alex Gaming, por ser un gran amigo y por ser un gran modder para Minecreaft (Prueben su mod, Catastrophe!)]
 			'''
 	}
 
 	JoiseMegaphone: {
-		DisplayName: Joise's Megaphone
+		DisplayName: Fegafono de Joise
 		Tooltip:
 			'''
-			Fires a sound wave that accelerates over time.
-			Every time the sound wave collides with a solid tile, it will ricochet and increase its damage significantly. This effect stacks with more ricochets.
-			It additionally can penetrate up to 10 times, but each ricohet decreases that amount by 1.
-			Ataque Omega consume 100 health to release two waves that curve in opposite directions that can also penetrate and richocet.
-			[c/dfbd00:This weapon is contributed to Joise, for being a strong brother to help me live in Christ.]
+			Dispara ondas sonoras que se aceleran con el tiempo.
+			Cada vez que el sonido colisiona con un bloque, este rebotar√°, incrementando su da√±o por cada rebote.  
+			La onda puede perforar hasta 10 veces, pero al rebotar esta cantidad se reduce a 1.
+			[c/6035ff:Ataque Omega] Consume 100 de vida para disparar deos enormes ondas sonoras que pueden rebotar.
+			[c/dfbd00:Esta arma fu√© aportada por Joise, por ser un hermano fuerte que me ayuda a vivir en Cristo.]
 			'''
 	}
 
 	StarSeeker: {
-		DisplayName: Star Shatterer
+		DisplayName: Destructora de estrellas
 		Tooltip:
 			'''
-			A mighty blade that releases multiple stars with every swing.
-			Ataque Omega produce a mighty explosion of hundreds of stars in all directions.
+			Una espada poderosa que libera m√∫ltiples estrellas con cada golpe.
+			[c/6035ff:Ataque Omega] Genera una poderosa explosi√≥n de cientos de estrellas en todas direcciones.
 			'''
 	}
 
 	HeavengoldBar: {
-		DisplayName: Heavengold Bar
+		DisplayName: Lingote de Oro Sagrado
 		Tooltip:
 			'''
-			The gold that the Paradeisosians have blessed upon you.
-			Even if it is very weak in combat by their standards, mortals like you can forge powerful weaponary from it.
+			El oro con el que te han bendecido los Paradeisosianos.
+			Incluso si es muy d√©bil en combate seg√∫n sus estandares, los mortales como t√≠ pueden forjar armas poderosas a partir de √©l.
 			'''
 	}
 
 	SkyKingsScepter: {
-		DisplayName: Sky King's Scepter
+		DisplayName: Cetro del Rey Celestial
 		Tooltip:
 			'''
-			Uses [c/C35BEF:2 minion slots] to summon a powerfully large heavenly guardian.
-			Having a guardian summoned will give you an additional 10 defense (does not stack with more heavenly guardians).
-			[c/dfbd00:This weapon is contributed to ThePow2, for helping with the textures and lore of the mod.]
+			Usa [c/C35BEF:2 minion slots] para invocar a un guardian celestial poderosamente grande.
+			Tener un guardi√°n convocado te dar√° 10 de defensa adicional (no se acumula con m√°s guardianes celestiales).
+			[c/dfbd00:Esta arma fu√© aportada por ThePow2 (Gracias por ayudarme con las texturas y el lore del mod).]
 			'''
 	}
 
 	ConjuringPiercer: {
-		DisplayName: Conjuring Piercer
+		DisplayName: Perforador conjurador
 		Tooltip:
 			'''
-			Regular bullets get converted to a conjuring projectile that applies debuffs depending on how many [c/C35BEF:minion slots] you have.
-			Whether your [c/C35BEF:minions slots] are being used or not does not matter.
-			Each [c/C35BEF:minions slot] you have adds two seconds to the duration of each debuff.
-			This weapon will always apply the on fire debuff, and each debuff you unlock is added on top of all previous debuffs.
-			At 2 or more [c/C35BEF:minion slots], it will also apply poison.
-			At 3 or more [c/C35BEF:minion slots], it will apply frostburn.
-			At 4 or more [c/C35BEF:minion slots], it will apply ichor.
+			Las balas normales se convierten en un proyectil de conjuro que aplica desventajas dependiendo de tu [c/C35BEF: espacio de s√∫bditos] tengas.
+			No importa si utilizas [c/C35BEF: espacio de s√∫bditos] o no.
+			Cada [c/C35BEF: espacio de s√∫bditos] que tengas a√±ade 2 segundos para cada desventajas.
+
+			Esta arma siempre aplicar√° el efecto de En llamas, y cada desventaja que desbloquees se agrega a todas las desventajas anteriores.		
+			Cuando tienes 2 o mas [c/C35BEF: espacios de s√∫bditos], aplicar√° veneno.
+			Cuando tienes 3 o mas [c/C35BEF: espacios de s√∫bditos], aplicar√° fuego helado.
+			Cuando tienes 4 o mas [c/C35BEF: espacios de s√∫bditos], aplicar√° fuego ichor.
 			'''
 	}
 
@@ -98,53 +100,52 @@ Items: {
 	}
 
 	HeartOfGold: {
-		DisplayName: Heart of Gold
+		DisplayName: Coraz√≥n de oro
 		Tooltip:
 			'''
-			Looks can be deceiving.
-			Increases all damage by 15%, but halves all total RegeneraciÛneration.
+			Las apariencias enga√±an.
+			Aumenta todo el da√±o en un 15%, pero reduce a la mitad toda la regeneraci√≥n de vida total.
 			'''
 	}
 
 	RingOfRestoration: {
-		DisplayName: Ring of Restoration
-		Tooltip: Provides a +3.5 passive gain to [c/6035ff:omega charge].
+		DisplayName: Anillo de la restauraci√≥n
+		Tooltip: Aumenta la regeneraci√≥n pasiva de [c/6035ff:carga omega] en 3.5.
 	}
 
 	DivineSheath: {
-		DisplayName: Divine Sheath
+		DisplayName: Vaina divina
 		Tooltip:
 			'''
-			Increases damage for all weapons.
-			The damage increase scales with your current amount of [c/6035ff:omega charge].
+			Aumenta el da√±o de todas las armas.
+			El aumento de da√±o aumenta con tu cantidad actual de [c/6035ff:carga omega].
 			'''
 	}
 
 	HeavengoldChestplate: {
-		DisplayName: Heavengold Chestplate
+		DisplayName: Coraza de oro sagrado
 		Tooltip:
 			'''
-			Decreases damage reduction by 10%.
-			Increases damage by 10%.
+			Reduce la reduci√≥n de da√±o en 10%.
+			Aumenta el da√±o en 10%
 			'''
 	}
 
 	HeavengoldHelmet: {
-		DisplayName: Heavengold Helmet
-		//Tooltip: +7% increased damage.
-		/*SetBonus:
+		DisplayName: Casco de oro sagrado
+		// Tooltip: "{$CommonItemTooltip.PercentIncreasedDamage}."
+		SetBonus:
 			'''
-			Increases maximum minion capacity by 2.
-			Increases mana regeneration significantly.
-			Increases melee attack speed by 15%.
-			Increase ranged critical strike chance by 15%.
-
-			'''*/
+			{$CommonItemTooltip.IncreasesMaxMinionsBy}
+			Aumenta la regeneraci√≥n de man√°
+			{$CommonItemTooltip.PercentIncreasedMeleeSpeed@1}
+			{$CommonItemTooltip.PercentIncreasedCritChance@2}
+			'''
 	}
 
 	HeavengoldLeggings: {
 		DisplayName: Perneras de Oro Divino
-		//Tooltip: {$CommonItemTooltip.PercentIncreasedMovementSpeed}.
+		// Tooltip: "{$CommonItemTooltip.PercentIncreasedMovementSpeed}."
 	}
 }
 
@@ -177,87 +178,87 @@ Projectiles: {
 
 Buffs: {
 	CorimsWarlockRevolverAbilityCooldown: {
-		DisplayName: ReutilizaciÛn del RevÛlver brujo de Corim
+		DisplayName: Reutilizaci√≥n del Rev√≥lver brujo de Corim
 		Description:
-		'''
-		°Tengo que poner al menos ALGO de esfuerzo para equilibrar este maldito mod! (Si no lo pudiste ver en la oraciÛn anterior, realmente no me gusta el equilibrio. Solo quiero que un arma divertida pueda ir al banco) 
-		(Nota del traductor: na,yo tampoco puse esfuerzo en traducir estaa descripciÛn xd)
-		'''
+			'''
+			!Tengo que poner al menos ALGO de esfuerzo para equilibrar este maldito mod! (Si no lo pudiste ver en la oraci√≥n anterior, realmente no me gusta el equilibrio. Solo quiero que un arma divertida pueda ir al banco) 
+			(Nota del traductor: na,yo tampoco puse esfuerzo en traducir estaa descripci√≥n xd)
+			'''
 	}
 
 	LifeRegenI: {
-		DisplayName: RegeneraciÛn I
-		Description: Aumenta la regeneraciÛn de vida
+		DisplayName: regeneraci√≥n I
+		Description: Aumenta la regeneraci√≥n de vida
 	}
 
 	LifeRegenII: {
-		DisplayName: RegeneraciÛn II
-		Description: Aumenta la regeneraciÛn de vida
+		DisplayName: regeneraci√≥n II
+		Description: Aumenta la regeneraci√≥n de vida
 	}
 
 	LifeRegenIII: {
-		DisplayName: RegeneraciÛn III
-		Description: Aumenta la regeneraciÛn de vida
+		DisplayName: regeneraci√≥n III
+		Description: Aumenta la regeneraci√≥n de vida
 	}
 
 	LifeRegenIV: {
-		DisplayName: RegeneraciÛn IV
-		Description: Aumenta la regeneraciÛn de vida
+		DisplayName: regeneraci√≥n IV
+		Description: Aumenta la regeneraci√≥n de vida
 	}
 
 	LifeRegenV: {
-		DisplayName: RegeneraciÛn V
-		Description: Aumenta la regeneraciÛn de vida
+		DisplayName: regeneraci√≥n V
+		Description: Aumenta la regeneraci√≥n de vida
 	}
 
 	MaxHealthI: {
 		DisplayName: Vitalidad I
-		Description: Aumenta la vida m·xima
+		Description: Aumenta la vida m√°xima
 	}
 
 	MaxHealthII: {
 		DisplayName: Vitalidad II
-		Description: Aumenta la vida m·xima
+		Description: Aumenta la vida m√°xima
 	}
 
 	MaxHealthIII: {
 		DisplayName: Vitalidad III
-		Description: Aumenta la vida m·xima
+		Description: Aumenta la vida m√°xima
 	}
 
 	MaxHealthIV: {
 		DisplayName: Vitalidad IV
-		Description: Aumenta la vida m·xima
+		Description: Aumenta la vida m√°xima
 	}
 
 	MaxHealthV: {
 		DisplayName: Vitalidad V
-		Description: Aumenta la vida m·xima
+		Description: Aumenta la vida m√°xima
 	}
 
 	SpeedI: {
 		DisplayName: Velocidad I
-		Description: Aumenta la velocidad de movimiento y la aceleraciÛn
+		Description: Aumenta la velocidad de movimiento y la aceleraci√≥n
 	}
 
 	SpeedII: {
 		DisplayName: Velocidad II
-		Description: Aumenta la velocidad de movimiento y la aceleraciÛn
+		Description: Aumenta la velocidad de movimiento y la aceleraci√≥n
 	}
 
 	SpeedIII: {
 		DisplayName: Velocidad III
-		Description: Aumenta la velocidad de movimiento y la aceleraciÛn
+		Description: Aumenta la velocidad de movimiento y la aceleraci√≥n
 	}
 
 	SpeedIV: {
 		DisplayName: Velocidad IV
-		Description: Aumenta la velocidad de movimiento y la aceleraciÛn
+		Description: Aumenta la velocidad de movimiento y la aceleraci√≥n
 	}
 
 	SpeedV: {
 		DisplayName: Velocidad V
-		Description: Aumenta la velocidad de movimiento y la aceleraciÛn
+		Description: Aumenta la velocidad de movimiento y la aceleraci√≥n
 	}
 }
 
@@ -289,12 +290,12 @@ Configs: {
 		}
 
 		OmegaBarXScreenPlacement: {
-			Label: PociciÛn de la barra Omega (eje X)
+			Label: PociciÔøΩn de la barra Omega (eje X)
 			Tooltip: ""
 		}
 
 		OmegaBarYScreenPlacement: {
-			Label: PociciÛn de la barra Omega (eje Y)
+			Label: PociciÔøΩn de la barra Omega (eje Y)
 			Tooltip: ""
 		}
 	}

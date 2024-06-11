@@ -48,11 +48,11 @@ namespace arkimedeezMod.Items.Weapons.StarSeeker
         public override bool CanUseItem(Player player)
         {
 
-            if (UnityPlayer.OmegaChargeCurrent >= 100 && player.altFunctionUse = 2)
+            if (UnityPlayer.OmegaChargeCurrent >= 100f && player.altFunctionUse == 2)
             {
                 ShootType = 1;
                 Item.useTime = 6;
-                UnityPlayer.OmegaChargeCurrent = 0;
+                UnityPlayer.OmegaChargeCurrent = 0f;
                 player.AddBuff(ModContent.BuffType<LifeRegenII>(), 1200);
                 Item.UseSound = new SoundStyle($"{nameof(arkimedeezMod)}/Assets/Audio/SwordSlash3")
                 {
