@@ -17,6 +17,7 @@ namespace arkimedeezMod.Items.Weapons.Venetration
         public override void SetDefaults()
         {
             // Common Properties
+            Item.CloneDefaults(ItemID.WoodenBoomerang);
             Item.width = 204;
             Item.height = 204;
             Item.value = Item.sellPrice(gold: 2, silver: 50);

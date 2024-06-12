@@ -1,14 +1,12 @@
 ﻿using arkimedeezMod.DamageClasses;
-using Microsoft.CodeAnalysis;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
-using System.Collections.Generic;
 using Terraria;
+using Terraria.DataStructures;
 using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
-using Terraria.ModLoader.Config;
 
 namespace arkimedeezMod.Items.Weapons.Venetration
 {
@@ -23,21 +21,28 @@ namespace arkimedeezMod.Items.Weapons.Venetration
 
         public override void SetDefaults()
         {
+            AIType = ProjectileID.WoodenBoomerang;
+            Projectile.CloneDefaults(ProjectileID.WoodenBoomerang);
             Projectile.DamageType = ModContent.GetInstance<OmegaDamage>();
             Projectile.width = 204;
             Projectile.height = 204;
             Projectile.tileCollide = false;
-            Projectile.penetrate = -1;
-            Projectile.friendly = false;
-            Projectile.hostile = false;
-            Projectile.extraUpdates = 0;
+            Projectile.penetrate = 400;
+            //Projectile.friendly = false;
+            //Projectile.hostile = false;
+           // Projectile.extraUpdates = 0;
         }
 
         public override void AI()
         {
-            Projectile.rotation += 0.15;
+            Projectile.rotation += 0.15f;
             Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.InfernoFork, Projectile.velocity.X * 0f, Projectile.velocity.Y * 0f, Alpha: 128, Scale: 1.2f);
             
+        }
+        public override void OnSpawn(IEntitySource source)
+        {
+            Projectile.damage = Main.LocalPlayer.HeldItem.damage;
+            base.OnSpawn(source);
         }
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
