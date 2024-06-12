@@ -91,7 +91,7 @@ namespace arkimedeezMod.Items.Weapons.StarSeeker
             {
                 Vector2 perturbedSpeed = velocity.RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .2f;
 
-                Projectile.NewProjectile(source, position, perturbedSpeed, ModContent.ProjectileType<StarSeekerProjectile>(), damage / ShootType == 0 ? 2 : 5, knockback);
+                Projectile.NewProjectile(source, position, perturbedSpeed, ModContent.ProjectileType<StarSeekerProjectile>(), damage / (ShootType == 0 ? 2 : 5), knockback);
             }
 
             return base.Shoot(player, source, position, velocity, type, damage, knockback);
