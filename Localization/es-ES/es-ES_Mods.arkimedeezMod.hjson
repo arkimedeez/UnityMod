@@ -149,8 +149,8 @@ Items: {
 	}
 
 	Venetration: {
-		// DisplayName: Venetration
-		// Tooltip: ""
+		DisplayName: Veneración
+		Tooltip: ""
 	}
 }
 
