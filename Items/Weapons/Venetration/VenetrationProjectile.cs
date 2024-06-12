@@ -24,6 +24,7 @@ namespace arkimedeezMod.Items.Weapons.Venetration
 
         public override void SetDefaults()
         {
+            Projectile.CloneDefaults(ProjectileID.WoodenBoomerang);
             Projectile.DamageType = ModContent.GetInstance<OmegaDamage>();
             Projectile.width = 204;
             Projectile.height = 204;

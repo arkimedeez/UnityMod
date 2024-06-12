@@ -27,15 +27,15 @@ namespace arkimedeezMod.Items.Weapons.Venetration
             Projectile.width = 204;
             Projectile.height = 204;
             Projectile.tileCollide = false;
-            Projectile.penetrate = 400;
+            Projectile.penetrate = -1;
             //Projectile.friendly = false;
             //Projectile.hostile = false;
-           // Projectile.extraUpdates = 0;
+            Projectile.extraUpdates = 1;
         }
 
         public override void AI()
         {
-            Projectile.rotation += 0.15f;
+            //Projectile.rotation += 0.15f;
             Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.InfernoFork, Projectile.velocity.X * 0f, Projectile.velocity.Y * 0f, Alpha: 128, Scale: 1.2f);
             
         }

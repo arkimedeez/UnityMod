@@ -17,7 +17,6 @@ namespace arkimedeezMod.Items.Weapons.Venetration
         public override void SetDefaults()
         {
             // Common Properties
-            Item.CloneDefaults(ItemID.WoodenBoomerang);
             Item.width = 204;
             Item.height = 204;
             Item.value = Item.sellPrice(gold: 2, silver: 50);
@@ -37,7 +36,7 @@ namespace arkimedeezMod.Items.Weapons.Venetration
             Item.noUseGraphic = true; // This makes sure the item does not get shown when the player swings his hand
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
-            Item.UseSound = new SoundStyle($"{nameof(arkimedeezMod)}/Assets/Audio/SwordSlash3")
+            Item.UseSound = new SoundStyle($"{nameof(arkimedeezMod)}/Assets/Audio/SwordSlash2")
             {
                 Volume = 0.3f,
                 PitchVariance = 0.3f,
@@ -48,16 +47,12 @@ namespace arkimedeezMod.Items.Weapons.Venetration
 
         public override bool AltFunctionUse(Player player) => true;
 
-        public bool RightClickAbility = false;
-
         public override bool CanUseItem(Player player)
         {
             if (player.altFunctionUse != 2)
             {
-                RightClickAbility = false;
                 Item.useTime = 36;
                 Item.useAnimation = 36;
-                Item.useStyle = ItemUseStyleID.Shoot;
                 Item.crit = 9;
                 Item.autoReuse = true;
 
@@ -69,7 +64,7 @@ namespace arkimedeezMod.Items.Weapons.Venetration
                 Item.noUseGraphic = true; // This makes sure the item does not get shown when the player swings his hand
                 Item.useStyle = ItemUseStyleID.Shoot;
                 Item.noMelee = true;
-                Item.UseSound = new SoundStyle($"{nameof(arkimedeezMod)}/Assets/Audio/SwordSlash3")
+                Item.UseSound = new SoundStyle($"{nameof(arkimedeezMod)}/Assets/Audio/SwordSlash2")
                 {
                     Volume = 0.3f,
                     PitchVariance = 0.3f,
@@ -87,9 +82,9 @@ namespace arkimedeezMod.Items.Weapons.Venetration
                     Item.useTime = 120;
                     Item.useAnimation = 120;
                     Item.damage = 300;
-                    Item.UseSound = new SoundStyle($"{nameof(arkimedeezMod)}/Assets/Audio/SwordSlash2")
+                    Item.UseSound = new SoundStyle($"{nameof(arkimedeezMod)}/Assets/Audio/SwordSlash3")
                     {
-                        Volume = 0.3f,
+                        Volume = 1f,
                         PitchVariance = 0.3f,
                     };
                     Item.shoot = ModContent.ProjectileType<VenetrationThrownProjectile>();
