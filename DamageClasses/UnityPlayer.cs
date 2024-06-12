@@ -30,7 +30,7 @@ namespace arkimedeezMod.DamageClasses
             {
                 if(OmegaWeaponHeldTimer < 900)
                 {
-                    OmegaWeaponHeldTimer = OmegaWeaponHeldTimer + 2;
+                    OmegaWeaponHeldTimer += 2;
                 }
             }
             else
@@ -59,48 +59,48 @@ namespace arkimedeezMod.DamageClasses
 
             if (DodgeTimer > 0)
             {
-                Player.SetImmuneTimeForAllTypes(Player.longInvince ? 1 : 1);
+                Player.SetImmuneTimeForAllTypes(1); // Player.longInvince ? 1 : 1  thats its allways 1
                 DodgeTimer--;
             }
-
-            if (Player.HasBuff(ModContent.BuffType<SpeedI>()))
-            {
-                Player.moveSpeed += 0.15f;
-                Player.maxRunSpeed += 0.15f;
-                Player.runAcceleration += 0.15f;
-                Player.accRunSpeed += 0.15f;
-            } 
-            else if (Player.HasBuff(ModContent.BuffType<SpeedII>()))
-            {
-                Player.moveSpeed *= 1.3f;
-                Player.maxRunSpeed *= 1.3f;
-            }
-            if (Player.HasBuff(ModContent.BuffType<SpeedIII>()))
-            {
-                Player.moveSpeed += 0.45f;
-                Player.maxRunSpeed += 0.45f;
-                Player.runAcceleration += 0.45f;
-                Player.accRunSpeed += 0.45f;
-            }
-            if (Player.HasBuff(ModContent.BuffType<SpeedIV>()))
-            {
-                Player.moveSpeed += 0.6f;
-                Player.maxRunSpeed += 0.6f;
-                Player.runAcceleration += 0.6f;
-                Player.accRunSpeed += 0.6f;
-            }
-            if (Player.HasBuff(ModContent.BuffType<SpeedV>()))
-            {
-                Player.moveSpeed += 0.75f;
-                Player.maxRunSpeed += 0.75f;
-                Player.runAcceleration += 0.75f;
-                Player.accRunSpeed += 0.75f;
-            }
+            UpdateSpeedEffect(Player);
         }
 
-        /*public override void PostUpdateRunSpeeds()
+        public void UpdateSpeedEffect(Player player)
         {
 
-        }*/
+            if (player.HasBuff(ModContent.BuffType<SpeedI>())) //why do you no update it on buff effect?
+            {
+                player.moveSpeed += 0.15f;
+                player.maxRunSpeed += 0.15f;
+                player.runAcceleration += 0.15f;
+                player.accRunSpeed += 0.15f;
+            }
+            else if (player.HasBuff(ModContent.BuffType<SpeedII>()))
+            {
+                player.moveSpeed *= 1.3f;
+                player.maxRunSpeed *= 1.3f;
+            }
+            if (player.HasBuff(ModContent.BuffType<SpeedIII>()))
+            {
+                player.moveSpeed += 0.45f;
+                player.maxRunSpeed += 0.45f;
+                player.runAcceleration += 0.45f;
+                player.accRunSpeed += 0.45f;
+            }
+            if (player.HasBuff(ModContent.BuffType<SpeedIV>()))
+            {
+                player.moveSpeed += 0.6f;
+                player.maxRunSpeed += 0.6f;
+                player.runAcceleration += 0.6f;
+                player.accRunSpeed += 0.6f;
+            }
+            if (player.HasBuff(ModContent.BuffType<SpeedV>()))
+            {
+                player.moveSpeed += 0.75f;
+                player.maxRunSpeed += 0.75f;
+                player.runAcceleration += 0.75f;
+                player.accRunSpeed += 0.75f;
+            }
+        }
     }
 }

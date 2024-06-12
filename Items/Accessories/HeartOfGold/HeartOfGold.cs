@@ -3,7 +3,6 @@ using arkimedeezMod.Items.Materials;
 using System;
 using Terraria;
 using Terraria.ID;
-using Terraria.Localization;
 using Terraria.ModLoader;
 
 namespace arkimedeezMod.Items.Accessories.HeartOfGold

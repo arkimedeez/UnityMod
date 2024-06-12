@@ -11,6 +11,12 @@ namespace arkimedeezMod.Items.Armor.HeavengoldArmor
     [AutoloadEquip(EquipType.Head)]
     public class HeavengoldHelmet : ModItem
     {
+        public int GenericDamageBonus = 7;
+        public int MovmentSpeedBonusPercent = 10;
+        public int MeleeAttackSpeedBonus = 15;
+        public int RangedCritBonus = 15;
+        public int MaxMinionBonus = 2;
+        public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(GenericDamageBonus);
         public override void SetDefaults()
         {
             Item.width = 34; // Width of the item
@@ -24,12 +30,12 @@ namespace arkimedeezMod.Items.Armor.HeavengoldArmor
 
         public override void SetStaticDefaults()
         {
-            SetBonusText = this.GetLocalization("SetBonus");
+            SetBonusText = this.GetLocalization("SetBonus").WithFormatArgs(MaxMinionBonus, MeleeAttackSpeedBonus, RangedCritBonus);
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.GetDamage(DamageClass.Generic) += 7 / 100f;
+            player.GetDamage(DamageClass.Generic) *= 1 * (GenericDamageBonus/100f); //7%
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -40,10 +46,10 @@ namespace arkimedeezMod.Items.Armor.HeavengoldArmor
         public override void UpdateArmorSet(Player player)
         {
             player.setBonus = SetBonusText.Value;
-            player.maxMinions += 2;
+            player.maxMinions += MaxMinionBonus;
             player.manaRegenBonus += 80;
-            player.GetAttackSpeed<MeleeDamageClass>() += 0.15f;
-            player.GetCritChance<RangedDamageClass>() += 15;
+            player.GetAttackSpeed<MeleeDamageClass>() += MeleeAttackSpeedBonus/100f;
+            player.GetCritChance<RangedDamageClass>() += RangedCritBonus;
         }
 
         public override void AddRecipes()

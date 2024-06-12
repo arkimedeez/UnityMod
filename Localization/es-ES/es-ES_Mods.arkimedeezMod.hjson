@@ -1,0 +1,302 @@
+# This file will automatically update with entries for new content after a build and reload
+DamageClasses.OmegaDamage.DisplayName: "[c/6035ff:daño omega]"
+
+Items: {
+	Aerokana: {
+		DisplayName: Aerokana
+		Tooltip:
+			'''
+			Se balancea a tu alrededor en un círculo amplio.
+			[c/6035ff:Ataque Omega] Haces una embestida hacia tu cursor. Tu velocidad está determinada por qué tan lejos está el cursor de tu posición.
+			Durante la embestida el daño es 10 veces mayor, además de darte un tiempo de inmunidad.
+			[c/dfbd00:Esta arma fué aportada por Sangar, por ayudarme en el inicio de mi aventura en el mundo del modding.]
+			'''
+	}
+
+	SkySplitter: {
+		DisplayName: Divisor de estelar
+		Tooltip:
+			'''
+			Hace girar una lanza de dos puntas a tu alrededor.
+			[c/6035ff:Ataque Omega] Arremetes hacia adelante con una enorme lanza y un rayo imparable.
+			[c/6035ff:Ataque Omega] Adicionalmente, aumenta tu velocidad de movimiento.
+			'''
+	}
+
+	Projectiles: {
+		SkySplitterSpear.DisplayName: Lanza del Divisor de estelar
+		AerokanaProjectile.DisplayName: Aerokana Projectile
+	}
+
+	WrathOfTheHarpies: {
+		DisplayName: Ira De Las Arpías
+		Tooltip:
+			'''
+			Dispara una rafaga imprecisa de plumas
+
+			[c/6035ff:Ataque Omega] Crea dos grandes remolinos de plumas.
+			[c/dfbd00:Esta arma fué aportada por Alex Gaming, por ser un gran amigo y por ser un gran modder para Minecreaft (Prueben su mod, Catastrophe!)]
+			'''
+	}
+
+	JoiseMegaphone: {
+		DisplayName: Fegafono de Joise
+		Tooltip:
+			'''
+			Dispara ondas sonoras que se aceleran con el tiempo.
+			Cada vez que el sonido colisiona con un bloque, este rebotará, incrementando su daño por cada rebote.  
+			La onda puede perforar hasta 10 veces, pero al rebotar esta cantidad se reduce a 1.
+			[c/6035ff:Ataque Omega] Consume 100 de vida para disparar deos enormes ondas sonoras que pueden rebotar.
+			[c/dfbd00:Esta arma fué aportada por Joise, por ser un hermano fuerte que me ayuda a vivir en Cristo.]
+			'''
+	}
+
+	StarSeeker: {
+		DisplayName: Destructora de estrellas
+		Tooltip:
+			'''
+			Una espada poderosa que libera múltiples estrellas con cada golpe.
+			[c/6035ff:Ataque Omega] Genera una poderosa explosión de cientos de estrellas en todas direcciones.
+			'''
+	}
+
+	HeavengoldBar: {
+		DisplayName: Lingote de Oro Sagrado
+		Tooltip:
+			'''
+			El oro con el que te han bendecido los Paradeisosianos.
+			Incluso si es muy débil en combate según sus estandares, los mortales como tí pueden forjar armas poderosas a partir de él.
+			'''
+	}
+
+	SkyKingsScepter: {
+		DisplayName: Cetro del Rey Celestial
+		Tooltip:
+			'''
+			Usa [c/C35BEF:2 minion slots] para invocar a un guardian celestial poderosamente grande.
+			Tener un guardián convocado te dará 10 de defensa adicional (no se acumula con más guardianes celestiales).
+			[c/dfbd00:Esta arma fué aportada por ThePow2 (Gracias por ayudarme con las texturas y el lore del mod).]
+			'''
+	}
+
+	ConjuringPiercer: {
+		DisplayName: Perforador conjurador
+		Tooltip:
+			'''
+			Las balas normales se convierten en un proyectil de conjuro que aplica desventajas dependiendo de tu [c/C35BEF: espacio de súbditos] tengas.
+			No importa si utilizas [c/C35BEF: espacio de súbditos] o no.
+			Cada [c/C35BEF: espacio de súbditos] que tengas añade 2 segundos para cada desventajas.
+
+			Esta arma siempre aplicará el efecto de En llamas, y cada desventaja que desbloquees se agrega a todas las desventajas anteriores.		
+			Cuando tienes 2 o mas [c/C35BEF: espacios de súbditos], aplicará veneno.
+			Cuando tienes 3 o mas [c/C35BEF: espacios de súbditos], aplicará fuego helado.
+			Cuando tienes 4 o mas [c/C35BEF: espacios de súbditos], aplicará fuego ichor.
+			'''
+	}
+
+	AAtest: {
+		DisplayName: A Atest
+		Tooltip: ""
+	}
+
+	HeartOfGold: {
+		DisplayName: Corazón de oro
+		Tooltip:
+			'''
+			Las apariencias engañan.
+			Aumenta todo el daño en un 15%, pero reduce a la mitad toda la regeneración de vida total.
+			'''
+	}
+
+	RingOfRestoration: {
+		DisplayName: Anillo de la restauración
+		Tooltip: Aumenta la regeneración pasiva de [c/6035ff:carga omega] en 3.5.
+	}
+
+	DivineSheath: {
+		DisplayName: Vaina divina
+		Tooltip:
+			'''
+			Aumenta el daño de todas las armas.
+			El aumento de daño aumenta con tu cantidad actual de [c/6035ff:carga omega].
+			'''
+	}
+
+	HeavengoldChestplate: {
+		DisplayName: Coraza de oro sagrado
+		Tooltip:
+			'''
+			Reduce la redución de daño en 10%.
+			Aumenta el daño en 10%
+			'''
+	}
+
+	HeavengoldHelmet: {
+		DisplayName: Casco de oro sagrado
+		// Tooltip: "{$CommonItemTooltip.PercentIncreasedDamage}."
+		SetBonus:
+			'''
+			{$CommonItemTooltip.IncreasesMaxMinionsBy}
+			Aumenta la regeneración de maná
+			{$CommonItemTooltip.PercentIncreasedMeleeSpeed@1}
+			{$CommonItemTooltip.PercentIncreasedCritChance@2}
+			'''
+	}
+
+	HeavengoldLeggings: {
+		DisplayName: Perneras de Oro Divino
+		// Tooltip: "{$CommonItemTooltip.PercentIncreasedMovementSpeed}."
+	}
+}
+
+Projectiles: {
+	AerokanaProjectile.DisplayName: Aerokana Projectile
+	SkySplitterSpear.DisplayName: Sky Splitter Spear
+	FeatherProjectile.DisplayName: Feather Projectile
+	MegaphoneProjectile.DisplayName: Megaphone Projectile
+	SkySplitterProjectile.DisplayName: Sky Splitter Projectile
+	TheStratosphereProjectile.DisplayName: The Stratosphere Projectile
+	TheStratosphereProjectileAlt.DisplayName: The Stratosphere Projectile Alt
+	StarSeekerSwing.DisplayName: Star Seeker Swing
+	StarSeekerProjectile.DisplayName: Star Seeker Projectile
+	CorimsWarlockRevolverProjectile.DisplayName: Corims Warlock Revolver Projectile
+	CorimsWarlockRevolverProjectileAlt.DisplayName: Corims Warlock Revolver Projectile Alt
+	HeavengoldArrow.DisplayName: Heavengold Arrow
+	HeavenlyGuardian.DisplayName: Heavenly Guardian
+	ConjuringPiercerMinion.DisplayName: Conjuring Piercer Minion
+	ConjuringPiercerProjectile.DisplayName: Conjuring Piercer Projectile
+	AAtestProjectile.DisplayName: A Atest Projectile
+	SkySplitterProjectileAlt.DisplayName: Sky Splitter Projectile Alt
+	AerokanaSlash.DisplayName: Aerokana Slash
+	MegaphoneProjectileAlt.DisplayName: Megaphone Projectile Alt
+	MegaphoneProjectileAlt1.DisplayName: Megaphone Projectile Alt1
+	MegaphoneProjectileAlt2.DisplayName: Megaphone Projectile Alt2
+	MegaphoneProjectileAlt3.DisplayName: Megaphone Projectile Alt3
+	FeatherProjectileAlt2.DisplayName: Feather Projectile Alt2
+	FeatherProjectileAlt1.DisplayName: Feather Projectile Alt1
+}
+
+Buffs: {
+	CorimsWarlockRevolverAbilityCooldown: {
+		DisplayName: Reutilización del Revólver brujo de Corim
+		Description:
+			'''
+			!Tengo que poner al menos ALGO de esfuerzo para equilibrar este maldito mod! (Si no lo pudiste ver en la oración anterior, realmente no me gusta el equilibrio. Solo quiero que un arma divertida pueda ir al banco) 
+			(Nota del traductor: na,yo tampoco puse esfuerzo en traducir estaa descripción xd)
+			'''
+	}
+
+	LifeRegenI: {
+		DisplayName: regeneración I
+		Description: Aumenta la regeneración de vida
+	}
+
+	LifeRegenII: {
+		DisplayName: regeneración II
+		Description: Aumenta la regeneración de vida
+	}
+
+	LifeRegenIII: {
+		DisplayName: regeneración III
+		Description: Aumenta la regeneración de vida
+	}
+
+	LifeRegenIV: {
+		DisplayName: regeneración IV
+		Description: Aumenta la regeneración de vida
+	}
+
+	LifeRegenV: {
+		DisplayName: regeneración V
+		Description: Aumenta la regeneración de vida
+	}
+
+	MaxHealthI: {
+		DisplayName: Vitalidad I
+		Description: Aumenta la vida máxima
+	}
+
+	MaxHealthII: {
+		DisplayName: Vitalidad II
+		Description: Aumenta la vida máxima
+	}
+
+	MaxHealthIII: {
+		DisplayName: Vitalidad III
+		Description: Aumenta la vida máxima
+	}
+
+	MaxHealthIV: {
+		DisplayName: Vitalidad IV
+		Description: Aumenta la vida máxima
+	}
+
+	MaxHealthV: {
+		DisplayName: Vitalidad V
+		Description: Aumenta la vida máxima
+	}
+
+	SpeedI: {
+		DisplayName: Velocidad I
+		Description: Aumenta la velocidad de movimiento y la aceleración
+	}
+
+	SpeedII: {
+		DisplayName: Velocidad II
+		Description: Aumenta la velocidad de movimiento y la aceleración
+	}
+
+	SpeedIII: {
+		DisplayName: Velocidad III
+		Description: Aumenta la velocidad de movimiento y la aceleración
+	}
+
+	SpeedIV: {
+		DisplayName: Velocidad IV
+		Description: Aumenta la velocidad de movimiento y la aceleración
+	}
+
+	SpeedV: {
+		DisplayName: Velocidad V
+		Description: Aumenta la velocidad de movimiento y la aceleración
+	}
+}
+
+UI.ExampleResource: Mods.arkimedeezMod.UI.ExampleResource
+
+Configs: {
+	UnityModConfig: {
+		DisplayName: Unity Mod Config
+		Headers.Items: Items Header
+
+		ExampleWingsToggle: {
+			Label: "{$Some.Key}"
+			Tooltip: "{$Some.Key}"
+		}
+
+		WeaponWithGrowingDamageToggle: {
+			Label: Weapon With Growing Damage Toggle
+			Tooltip: ""
+		}
+
+		OmegaBarXOffset: {
+			Label: Omega Bar X Offset
+			Tooltip: ""
+		}
+
+		OmegaBarYOffset: {
+			Label: Omega Bar Y Offset
+			Tooltip: ""
+		}
+
+		OmegaBarXScreenPlacement: {
+			Label: Pocici�n de la barra Omega (eje X)
+			Tooltip: ""
+		}
+
+		OmegaBarYScreenPlacement: {
+			Label: Pocici�n de la barra Omega (eje Y)
+			Tooltip: ""
+		}
+	}
+}
