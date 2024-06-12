@@ -1,4 +1,6 @@
 ﻿using arkimedeezMod.DamageClasses;
+using arkimedeezMod.Items.Materials;
+using Microsoft.Build.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
@@ -28,6 +30,21 @@ namespace arkimedeezMod.Items.Accessories.DivineSheath
             {
                 player.GetDamage(DamageClass.Generic) += 5 / 100f;
             }
+        }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe()
+            .AddIngredient<HeavengoldBar>(8)
+            .AddIngredient(ItemID.CopperBar, 10)
+            .AddTile(TileID.Anvils)
+            .Register();
+
+            CreateRecipe()
+             .AddIngredient<HeavengoldBar>(8)
+            .AddIngredient(ItemID.TinBar, 10)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
     }
 }

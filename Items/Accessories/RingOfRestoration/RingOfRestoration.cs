@@ -1,4 +1,5 @@
 ﻿using arkimedeezMod.DamageClasses;
+using arkimedeezMod.Items.Materials;
 using System;
 using Terraria;
 using Terraria.ID;
@@ -24,6 +25,14 @@ namespace arkimedeezMod.Items.Accessories.RingOfRestoration
             {
                 UnityPlayer.OmegaChargeCurrent += 0.035f;
             }
+        }
+        public override void AddRecipes()
+        {
+            CreateRecipe()
+            .AddIngredient<HeavengoldBar>(6)
+            .AddIngredient(ItemID.BandofRegeneration, 1)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
     }
 }

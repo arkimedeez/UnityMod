@@ -7,6 +7,8 @@ using Terraria.ModLoader;
 using arkimedeezMod.Projectiles;
 using arkimedeezMod.DamageClasses;
 using Terraria.Audio;
+using Terraria.GameContent.ItemDropRules;
+using System.Security.Cryptography.X509Certificates;
 
 namespace arkimedeezMod.Items.Weapons.Aerokana
 {
@@ -88,7 +90,7 @@ namespace arkimedeezMod.Items.Weapons.Aerokana
                     Item.shoot = ModContent.ProjectileType<AerokanaProjectile>(); // The sword as a projectile
 
                     Vector2 target = Main.screenPosition + new Vector2(Main.mouseX, Main.mouseY);
-                    player.velocity = (target - player.position)/20;
+                    player.velocity = (target - player.position) / 20;
 
                     UnityPlayer.DodgeTimer = UnityPlayer.DodgeTimer + 100;
                     UnityPlayer.OmegaChargeCurrent = 0;

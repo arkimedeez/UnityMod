@@ -10,6 +10,7 @@ namespace arkimedeezMod.Items.Materials
         {
             Item.rare = ItemRarityID.Orange; // The color that the item's name will be in-game.
             Item.value = Item.sellPrice(silver: 20);
+            Item.maxStack = 9999;
         }
         public override void AddRecipes()
         {

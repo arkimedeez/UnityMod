@@ -146,6 +146,11 @@ Items: {
 		DisplayName: Heavengold Leggings
 		Tooltip: +10% movement speed.
 	}
+
+	Venetration: {
+		DisplayName: Venetration
+		Tooltip: ""
+	}
 }
 
 Projectiles: {
@@ -173,6 +178,8 @@ Projectiles: {
 	MegaphoneProjectileAlt3.DisplayName: Megaphone Projectile Alt3
 	FeatherProjectileAlt2.DisplayName: Feather Projectile Alt2
 	FeatherProjectileAlt1.DisplayName: Feather Projectile Alt1
+	VenetrationProjectile.DisplayName: Venetration Projectile
+	VenetrationThrownProjectile.DisplayName: Venetration Thrown Projectile
 }
 
 Buffs: {

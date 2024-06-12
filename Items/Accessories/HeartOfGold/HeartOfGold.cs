@@ -1,4 +1,5 @@
 ﻿using arkimedeezMod.DamageClasses;
+using arkimedeezMod.Items.Materials;
 using System;
 using Terraria;
 using Terraria.ID;
@@ -25,6 +26,15 @@ namespace arkimedeezMod.Items.Accessories.HeartOfGold
                 player.GetDamage(DamageClass.Generic) += 15 / 100f;
                 player.lifeRegen *= Convert.ToInt32(Math.Round(player.lifeRegen * 0.5));
             }
+        }
+
+        public override void AddRecipes()
+        {
+            CreateRecipe()
+            .AddIngredient<HeavengoldBar>(4)
+            .AddIngredient(ItemID.LifeCrystal, 1)
+            .AddTile(TileID.Anvils)
+            .Register();
         }
     }
 }
