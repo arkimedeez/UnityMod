@@ -10,7 +10,7 @@ Items: {
 			[c/6035ff:Omega attacks] launch you towards your cursor. Your speed is determined by how far away the cursor is from you position.
 			During this dash, you swing the sword around you as normal, except it deals 10 times the damage.
 			You are also invulnerable while this dash is active, as well as shortly after.
-			[c/dfbd00:Esta arma fu� aportada por Sangar, for helping me with my modding journey from the beginning.]
+			[c/dfbd00:This weapon is contributed to Sangar, for helping me with my modding journey from the beginning.]
 			'''
 	}
 
@@ -35,7 +35,7 @@ Items: {
 			'''
 			Fires an innacurate spread of feathers.
 			Omega attacks create two seperate whirlpools of feathers on either side of you.
-			[c/dfbd00:Esta arma fu� aportada por Alex Gaming, for being a great friend and being a goated Minecraft mod developer (check out his mod, Catastrophe!)]
+			[c/dfbd00:This weapon is contributed to Alex Gaming, for being a great friend and being a goated Minecraft mod developer (check out his mod, Catastrophe!)]
 			'''
 	}
 
@@ -47,7 +47,7 @@ Items: {
 			Every time the sound wave collides with a solid tile, it will ricochet and increase its damage significantly. This effect stacks with more ricochets.
 			It additionally can penetrate up to 10 times, but each ricohet decreases that amount by 1.
 			Omega attacks consume 100 health to release two waves that curve in opposite directions that can also penetrate and richocet.
-			[c/dfbd00:Esta arma fu� aportada por Joise, for being a strong brother to help me live in Christ.]
+			[c/dfbd00:This weapon is contributed to Joise, for being a strong brother to help me live in Christ.]
 			'''
 	}
 
@@ -75,7 +75,7 @@ Items: {
 			'''
 			Uses [c/C35BEF:2 minion slots] to summon a powerfully large heavenly guardian.
 			Having a guardian summoned will give you an additional 10 defense (does not stack with more heavenly guardians).
-			[c/dfbd00:Esta arma fu� aportada por ThePow2, for helping with the textures and lore of the mod.]
+			[c/dfbd00:This weapon is contributed to ThePow2, for helping with the textures and lore of the mod.]
 			'''
 	}
 
