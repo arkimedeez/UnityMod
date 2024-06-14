@@ -36,7 +36,7 @@ namespace arkimedeezMod.Items.Weapons.SkySplitter
             // Weapon Properties
             Item.knockBack = 7;  // The knockback of your sword, this is dynamically adjusted in the projectile code.
             Item.autoReuse = false; // This determines whether the weapon has autoswing
-            Item.damage = 9; // The damage of your sword, this is dynamically adjusted in the projectile code.
+            Item.damage = 6; // The damage of your sword, this is dynamically adjusted in the projectile code.
             Item.DamageType = ModContent.GetInstance<OmegaDamage>();
             Item.noMelee = true;  // This makes sure the item does not deal damage from the swinging animation
             Item.noUseGraphic = true; // This makes sure the item does not get shown when the player swings his hand

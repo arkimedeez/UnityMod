@@ -25,8 +25,8 @@ namespace arkimedeezMod.Items.Weapons.WrathOfTheHarpies
             Item.rare = ItemRarityID.Orange;
 
             //Common stats 
-            Item.damage = 20;
-            Item.crit = 4;
+            Item.damage = 7;
+            Item.crit = -10;
             Item.DamageType = ModContent.GetInstance<OmegaDamage>();
 
             // Use Properties
@@ -78,7 +78,7 @@ namespace arkimedeezMod.Items.Weapons.WrathOfTheHarpies
                     ShootType = 1;
 
                     Item.useTime = 4; // The item's use time in ticks (60 ticks == 1 second.)
-                    Item.useAnimation = 64; // The length of the item's use animation in ticks (60 ticks == 1 second.)
+                    Item.useAnimation = 92; // The length of the item's use animation in ticks (60 ticks == 1 second.)
                     Item.useStyle = ItemUseStyleID.Shoot; // How you use the item (swinging, holding out, etc.)
                     Item.autoReuse = false; // Whether or not you can hold click to automatically use it again.
                   
@@ -125,8 +125,8 @@ namespace arkimedeezMod.Items.Weapons.WrathOfTheHarpies
             }
             else
             {
-                Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<FeatherProjectileAlt1>(), Convert.ToInt32(Math.Round(damage * 2.2)), knockback, Main.myPlayer);
-                Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<FeatherProjectileAlt2>(), Convert.ToInt32(Math.Round(damage * 2.2)), knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<FeatherProjectileAlt1>(), Convert.ToInt32(Math.Round(damage * 3.5)), knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<FeatherProjectileAlt2>(), Convert.ToInt32(Math.Round(damage * 3.5)), knockback, Main.myPlayer);
                 return false;
             }
         }

@@ -15,7 +15,7 @@ namespace arkimedeezMod.Items.Weapons.StarSeeker
     {
         public override void SetDefaults()
         {
-            Item.damage = 50; // The damage your item deals.
+            Item.damage = 40; // The damage your item deals.
             Item.crit = 15; // The critical strike chance the weapon has. The player, by default, has a 4% critical strike chance.
             Item.knockBack = 6; // The force of knockback of the weapon. Maximum is 20
 
@@ -91,7 +91,7 @@ namespace arkimedeezMod.Items.Weapons.StarSeeker
             {
                 Vector2 perturbedSpeed = velocity.RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .2f;
 
-                Projectile.NewProjectile(source, position, perturbedSpeed, ModContent.ProjectileType<StarSeekerProjectile>(), damage / (ShootType == 0 ? 2 : 5), knockback);
+                Projectile.NewProjectile(source, position, perturbedSpeed, ModContent.ProjectileType<StarSeekerProjectile>(), damage / 4, knockback);
             }
 
             return base.Shoot(player, source, position, velocity, type, damage, knockback);

@@ -34,7 +34,7 @@ namespace arkimedeezMod.Items.Weapons.JoiseMegaphone
 
             // Weapon Properties
             Item.DamageType = ModContent.GetInstance<OmegaDamage>();
-            Item.damage = 100; // Sets the item's damage. Note that projectiles shot by this weapon will use its and the used ammunition's damage added together.
+            Item.damage = 70; // Sets the item's damage. Note that projectiles shot by this weapon will use its and the used ammunition's damage added together.
             Item.knockBack = 5f; // Sets the item's knockback. Note that projectiles shot by this weapon will use its and the used ammunition's knockback added together.
             Item.noMelee = true; // So the item's animation doesn't do damage.
             Item.crit = 5;
@@ -55,16 +55,12 @@ namespace arkimedeezMod.Items.Weapons.JoiseMegaphone
 
         public int ShootType = 0;
 
+        SoundStyle VineBoomSound = new SoundStyle($"{nameof(arkimedeezMod)}/Assets/Audio/VineBoom");
+
         public override bool CanUseItem(Player player)
         {
             int sound = Main.rand.Next(1, 6);
            
-            if (ShootType == 1)
-            {
-                SetSound("VineBoom", 10f, 0f, 3);
-            }
-            else
-            {
                 if (sound >= 1 && sound <= 4)
                 {
                     SetSound("megaphone" + sound, 0.5f, 0.2f, 3);
@@ -73,7 +69,6 @@ namespace arkimedeezMod.Items.Weapons.JoiseMegaphone
                 {
                     SetSound("megaphone5", 0.5f, 0.2f, 3);
                 };
-            }
 
             if (player.altFunctionUse != 2)
             {
@@ -90,6 +85,7 @@ namespace arkimedeezMod.Items.Weapons.JoiseMegaphone
                     UnityPlayer.OmegaChargeCurrent = 0;
                     player.statLife -= 100;
                     Item.shoot = ModContent.ProjectileType<MegaphoneProjectile>();
+                    SoundEngine.PlaySound(VineBoomSound with { Volume = 5f });
                 }
                 else
                 {
@@ -114,8 +110,8 @@ namespace arkimedeezMod.Items.Weapons.JoiseMegaphone
         {
             if (ShootType != 0)
             {
-                Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<MegaphoneProjectileAlt1>(), damage * 10, knockback, Main.myPlayer);
-                Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<MegaphoneProjectileAlt2>(), damage * 10, knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<MegaphoneProjectileAlt1>(), Main.LocalPlayer.HeldItem.damage * 15, knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<MegaphoneProjectileAlt2>(), Main.LocalPlayer.HeldItem.damage * 15, knockback, Main.myPlayer);
                 player.velocity = -velocity;
                 return false;
             }

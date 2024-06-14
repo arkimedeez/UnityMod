@@ -7,6 +7,8 @@ using Terraria.ModLoader;
 using arkimedeezMod.Projectiles;
 using arkimedeezMod.DamageClasses;
 using Terraria.Audio;
+using System;
+using SteelSeries.GameSense;
 
 namespace arkimedeezMod.Items.Weapons.Venetration
 {
@@ -31,12 +33,12 @@ namespace arkimedeezMod.Items.Weapons.Venetration
             // Weapon Properties
             Item.knockBack = 7;  // The knockback of your sword, this is dynamically adjusted in the projectile code.
             Item.autoReuse = false; // This determines whether the weapon has autoswing
-            Item.damage = 62; // The damage of your sword, this is dynamically adjusted in the projectile code.
+            Item.damage = 20; // The damage of your sword, this is dynamically adjusted in the projectile code.
             Item.DamageType = ModContent.GetInstance<OmegaDamage>();
             Item.noUseGraphic = true; // This makes sure the item does not get shown when the player swings his hand
             Item.useStyle = ItemUseStyleID.Shoot;
             Item.noMelee = true;
-            Item.UseSound = new SoundStyle($"{nameof(arkimedeezMod)}/Assets/Audio/SwordSlash2")
+            Item.UseSound = new SoundStyle($"{nameof(arkimedeezMod)}/Assets/Audio/SwordSlash7")
             {
                 Volume = 0.3f,
                 PitchVariance = 0.3f,
@@ -55,16 +57,17 @@ namespace arkimedeezMod.Items.Weapons.Venetration
                 Item.useAnimation = 36;
                 Item.crit = 9;
                 Item.autoReuse = true;
+                Item.shootSpeed = 0;
 
                 // Weapon Properties
                 Item.knockBack = 7;  // The knockback of your sword, this is dynamically adjusted in the projectile code.
                 Item.autoReuse = false; // This determines whether the weapon has autoswing
-                Item.damage = 62; // The damage of your sword, this is dynamically adjusted in the projectile code.
+                //Item.damage = 20; // The damage of your sword, this is dynamically adjusted in the projectile code.
                 Item.DamageType = ModContent.GetInstance<OmegaDamage>();
                 Item.noUseGraphic = true; // This makes sure the item does not get shown when the player swings his hand
                 Item.useStyle = ItemUseStyleID.Shoot;
                 Item.noMelee = true;
-                Item.UseSound = new SoundStyle($"{nameof(arkimedeezMod)}/Assets/Audio/SwordSlash2")
+                Item.UseSound = new SoundStyle($"{nameof(arkimedeezMod)}/Assets/Audio/SwordSlash7")
                 {
                     Volume = 0.3f,
                     PitchVariance = 0.3f,
@@ -78,16 +81,13 @@ namespace arkimedeezMod.Items.Weapons.Venetration
                 if (UnityPlayer.OmegaChargeCurrent == 100)
                 {
                     UnityPlayer.OmegaChargeCurrent = 0;
-                    Item.shootSpeed = 20;
-                    Item.useTime = 120;
-                    Item.useAnimation = 120;
-                    Item.damage = 300;
-                    Item.UseSound = new SoundStyle($"{nameof(arkimedeezMod)}/Assets/Audio/SwordSlash3")
-                    {
-                        Volume = 1f,
-                        PitchVariance = 0.3f,
-                    };
+                    Item.shootSpeed = 5;
+                    Item.useTime = 200;
+                    Item.useAnimation = 200;
+                    //Item.damage = 300;
+                    Item.UseSound = new SoundStyle($"{nameof(arkimedeezMod)}/Assets/Audio/SwordSlash2");
                     Item.shoot = ModContent.ProjectileType<VenetrationThrownProjectile>();
+                    player.AddBuff(BuffID.BrokenArmor, 300);
                 }
                 else
                 {

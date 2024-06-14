@@ -24,15 +24,15 @@ namespace arkimedeezMod.Items.Weapons.Venetration
 
         public override void SetDefaults()
         {
-            Projectile.CloneDefaults(ProjectileID.WoodenBoomerang);
             Projectile.DamageType = ModContent.GetInstance<OmegaDamage>();
             Projectile.width = 204;
             Projectile.height = 204;
             Projectile.tileCollide = false;
             Projectile.penetrate = -1;
-            Projectile.friendly = false;
+            Projectile.friendly = true;
             Projectile.hostile = false;
             Projectile.extraUpdates = 0;
+            Projectile.damage = 20;
         }
 
         public bool aimingVertically;
@@ -131,7 +131,7 @@ namespace arkimedeezMod.Items.Weapons.Venetration
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            UnityPlayer.OmegaChargeCurrent = UnityPlayer.OmegaChargeCurrent + 1.5f;
+            UnityPlayer.OmegaChargeCurrent += 1.5f;
             target.AddBuff(BuffID.OnFire, 400);
         }
 

@@ -72,7 +72,7 @@ namespace arkimedeezMod.Projectiles
         public override bool OnTileCollide(Vector2 oldVelocity)
         {
             Projectile.penetrate--;
-            Projectile.damage += 20;
+            Projectile.damage += 5;
                 Collision.HitTiles(Projectile.position, Projectile.velocity, Projectile.width, Projectile.height);
                 SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
                 if (Math.Abs(Projectile.velocity.X - oldVelocity.X) > float.Epsilon) Projectile.velocity.X = -oldVelocity.X;
@@ -81,6 +81,7 @@ namespace arkimedeezMod.Projectiles
         }
 
         float maxScale = 2;
+
         public override void AI()
         {
             Projectile.velocity *= 1.01f;
