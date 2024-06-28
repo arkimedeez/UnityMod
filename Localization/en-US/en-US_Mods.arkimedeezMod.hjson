@@ -6,22 +6,15 @@ Items: {
 		DisplayName: Aerokana
 		Tooltip:
 			'''
-			Swings around you in a wide circle.
 			[c/6035ff:Omega attacks] launch you towards your cursor. Your speed is determined by how far away the cursor is from you position.
-			During this dash, you swing the sword around you as normal, except it deals 10 times the damage.
-			You are also invulnerable while this dash is active, as well as shortly after.
-			[c/dfbd00:Esta arma fu� aportada por Sangar, for helping me with my modding journey from the beginning.]
+			During this dash, you are invulnerable and deal much more damage.
+			[c/dfbd00:This weapon is contributed to Sangar, for helping me with my modding journey from the beginning.]
 			'''
 	}
 
 	SkySplitter: {
 		DisplayName: Sky Splitter
-		Tooltip:
-			'''
-			Spins a double sided spear around you.
-			[c/6035ff:Omega attacks] thrust forward a huge spear and an unstoppable beam.
-			[c/6035ff:Omega attacks] additionally increase mobility for a short amount of time.
-			'''
+		Tooltip: "[c/6035ff:Omega attacks] thrust forward a huge spear and an unstoppable beam and additionally increase mobility for a short amount of time."
 	}
 
 	Projectiles: {
@@ -33,9 +26,8 @@ Items: {
 		DisplayName: Wrath Of The Harpies
 		Tooltip:
 			'''
-			Fires an innacurate spread of feathers.
-			Omega attacks create two seperate whirlpools of feathers on either side of you.
-			[c/dfbd00:Esta arma fu� aportada por Alex Gaming, for being a great friend and being a goated Minecraft mod developer (check out his mod, Catastrophe!)]
+			[c/6035ff:Omega attacks] create two seperate whirlpools of feathers on either side of you.
+			[c/dfbd00:This weapon is contributed to Alex Gaming, for being a great friend and being a goated Minecraft mod developer (check out his mod, Catastrophe!)]
 			'''
 	}
 
@@ -44,20 +36,15 @@ Items: {
 		Tooltip:
 			'''
 			Fires a sound wave that accelerates over time.
-			Every time the sound wave collides with a solid tile, it will ricochet and increase its damage significantly. This effect stacks with more ricochets.
-			It additionally can penetrate up to 10 times, but each ricohet decreases that amount by 1.
-			Omega attacks consume 100 health to release two waves that curve in opposite directions that can also penetrate and richocet.
-			[c/dfbd00:Esta arma fu� aportada por Joise, for being a strong brother to help me live in Christ.]
+			Every time the sound wave collides with a solid tile, it will increase how much damage it deals.
+			[c/6035ff:Omega attacks] consume 100 health to release two waves that curve in opposite directions that can also penetrate and richocet.
+			[c/dfbd00:This weapon is contributed to Joise, for being a strong brother to help me live in Christ.]
 			'''
 	}
 
 	StarSeeker: {
 		DisplayName: Star Shatterer
-		Tooltip:
-			'''
-			A mighty blade that releases multiple stars with every swing.
-			Omega attacks produce a mighty explosion of hundreds of stars in all directions.
-			'''
+		Tooltip: "[c/6035ff:Omega attacks] produce a mighty explosion of hundreds of stars in all directions and provide significant health regeneration."
 	}
 
 	HeavengoldBar: {
@@ -66,30 +53,6 @@ Items: {
 			'''
 			The gold that the Paradeisosians have blessed upon you.
 			Even if it is very weak in combat by their standards, mortals like you can forge powerful weaponary from it.
-			'''
-	}
-
-	SkyKingsScepter: {
-		DisplayName: Sky King's Scepter
-		Tooltip:
-			'''
-			Uses [c/C35BEF:2 minion slots] to summon a powerfully large heavenly guardian.
-			Having a guardian summoned will give you an additional 10 defense (does not stack with more heavenly guardians).
-			[c/dfbd00:Esta arma fu� aportada por ThePow2, for helping with the textures and lore of the mod.]
-			'''
-	}
-
-	ConjuringPiercer: {
-		DisplayName: Conjuring Piercer
-		Tooltip:
-			'''
-			Regular bullets get converted to a conjuring projectile that applies debuffs depending on how many [c/C35BEF:minion slots] you have.
-			Whether your [c/C35BEF:minions slots] are being used or not does not matter.
-			Each [c/C35BEF:minions slot] you have adds two seconds to the duration of each debuff.
-			This weapon will always apply the on fire debuff, and each debuff you unlock is added on top of all previous debuffs.
-			At 2 or more [c/C35BEF:minion slots], it will also apply poison.
-			At 3 or more [c/C35BEF:minion slots], it will apply frostburn.
-			At 4 or more [c/C35BEF:minion slots], it will apply ichor.
 			'''
 	}
 
@@ -103,13 +66,13 @@ Items: {
 		Tooltip:
 			'''
 			Looks can be deceiving.
-			Increases all damage by 15%, but halves all total life regeneration.
+			Increases all damage by 15%, but subtracts 3 life regen
 			'''
 	}
 
 	RingOfRestoration: {
 		DisplayName: Ring of Restoration
-		Tooltip: Provides a +3.5 passive gain to [c/6035ff:omega charge].
+		Tooltip: Provides a +3.5 passive gain to [c/6035ff:omega charge]
 	}
 
 	DivineSheath: {
@@ -117,22 +80,18 @@ Items: {
 		Tooltip:
 			'''
 			Increases damage for all weapons.
-			The damage increase scales with your current amount of [c/6035ff:omega charge].
+			The damage increase scales with your current amount of [c/6035ff:omega charge]
 			'''
 	}
 
 	HeavengoldChestplate: {
 		DisplayName: Heavengold Chestplate
-		Tooltip:
-			'''
-			Decreases damage reduction by 10%.
-			Increases damage by 10%.
-			'''
+		Tooltip: Increases damage by 10%.
 	}
 
 	HeavengoldHelmet: {
 		DisplayName: Heavengold Helmet
-		Tooltip: "{$CommonItemTooltip.PercentIncreasedDamage}."
+		Tooltip: 7% increased damage.
 		SetBonus:
 			'''
 			{$CommonItemTooltip.IncreasesMaxMinionsBy}
@@ -144,18 +103,68 @@ Items: {
 
 	HeavengoldLeggings: {
 		DisplayName: Heavengold Leggings
-		Tooltip: "{$CommonItemTooltip.PercentIncreasedMovementSpeed}."
+		Tooltip: 7% increased movement speed and 5% increased damage
 	}
 
 	Venetration: {
-		DisplayName: Venetration
+		DisplayName: Lambrusco Scorcher
 		Tooltip:
 			'''
-			A massive greatsword that has been handed down to you in reverance.
-			Hitting enemies ignites them.
+			Ignites enemies.
 			[c/6035ff:Omega attacks] will throw the sword out from your hand, where it will penetrate all enemies and return to you.
-			Your defense is halved for a short time after performing this omega attack.
+			Your defense is halved for a period time after performing this omega attack.
 			'''
+	}
+
+	SangioveseBoiler: {
+		DisplayName: Sangiovese Boiler
+		Tooltip: "[c/6035ff:Omega attacks] release two giant chunks of flesh that inflict ichor upon the target."
+	}
+
+	SangriaEvaporator: {
+		Tooltip: "[c/6035ff:Omega attacks] release an unrelenting flurry of beams and temporarily increase your defenese."
+		DisplayName: Sangria Evaporator
+	}
+
+	SanguineChestplate: {
+		DisplayName: Sanguine Chestplate
+		Tooltip: Increases damage reduction by 5% and grants +1 life regen
+	}
+
+	SanguineHelmet: {
+		SetBonus: +5 life regen
+		DisplayName: Sanguine Helmet
+		Tooltip: +1 life regen
+	}
+
+	SanguineHeadguard: {
+		SetBonus: Increases defense by 15
+		DisplayName: Sanguine Headguard
+		Tooltip: +5% damage reduction
+	}
+
+	SanguineLeggings: {
+		DisplayName: Sanguine Leggings
+		Tooltip: ""
+	}
+
+	UnholyArtifact: {
+		DisplayName: Unholy Artifact
+		Tooltip:
+			'''
+			Increases defense by 15
+			After getting hit, your take much more damage for a short amount of time
+			'''
+	}
+
+	CrimsonAegis: {
+		DisplayName: Crimson Aegis
+		Tooltip: Increases your defense the lower on health you are on
+	}
+
+	BloodlustDagger: {
+		DisplayName: Bloodlust Dagger
+		Tooltip: Attacks inflict... frostburn? How does that make sense? ...oh yeah, that's just a placeholder debuff
 	}
 }
 
@@ -186,14 +195,12 @@ Projectiles: {
 	FeatherProjectileAlt1.DisplayName: Feather Projectile Alt1
 	VenetrationProjectile.DisplayName: Venetration Projectile
 	VenetrationThrownProjectile.DisplayName: Venetration Thrown Projectile
+	SangioveseBoilerProjectile.DisplayName: Sangiovese Boiler Projectile
+	SangioveseBoilerAltProjectile.DisplayName: Sangiovese Boiler Alt Projectile
+	SangriaEvaporatorProjectile.DisplayName: Sangria Evaporator Projectile
 }
 
 Buffs: {
-	CorimsWarlockRevolverAbilityCooldown: {
-		DisplayName: Corim's Warlock Revolver Ability Cooldown
-		Description: Gotta put at least SOME effort into balancing this damn mod! (If you couldn't tell from the previous sentence, I really dislike balancing. I just want funny gun to be able to go pew pew)
-	}
-
 	LifeRegenI: {
 		DisplayName: Life Regen I
 		Description: Increased life regeneration
@@ -267,6 +274,21 @@ Buffs: {
 	SpeedV: {
 		DisplayName: Speed V
 		Description: Increased movement speed, max movement speed, and acceleration
+	}
+
+	DefenseII: {
+		DisplayName: Defense II
+		Description: Increased defense
+	}
+
+	CorimsWarlockRevolverAbilityCooldown: {
+		Description: Mods.arkimedeezMod.Buffs.CorimsWarlockRevolverAbilityCooldown.Description
+		DisplayName: Corims Warlock Revolver Ability Cooldown
+	}
+
+	ShatteredArmor: {
+		DisplayName: Shattered Armor
+		Description: Your armor has been shattered!
 	}
 }
 

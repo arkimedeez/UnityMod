@@ -1,7 +1,6 @@
 ﻿using arkimedeezMod.Buffs.StatBoosts;
 using arkimedeezMod.DamageClasses;
 using arkimedeezMod.Items.Materials;
-using arkimedeezMod.Projectiles;
 using Microsoft.Xna.Framework;
 using MonoMod.Logs;
 using Terraria;
@@ -83,7 +82,7 @@ namespace arkimedeezMod.Items.Weapons.JoiseMegaphone
                     ShootType = 1;               
                     Item.shootSpeed = 30f;
                     UnityPlayer.OmegaChargeCurrent = 0;
-                    player.statLife -= 100;
+                    player.Hurt(PlayerDeathReason.ByPlayerItem(1, new Item(this.Type)), 100, 1);
                     Item.shoot = ModContent.ProjectileType<MegaphoneProjectile>();
                     SoundEngine.PlaySound(VineBoomSound with { Volume = 5f });
                 }

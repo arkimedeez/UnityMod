@@ -9,6 +9,7 @@ using arkimedeezMod.DamageClasses;
 using Terraria.Audio;
 using System;
 using SteelSeries.GameSense;
+using arkimedeezMod.Buffs;
 
 namespace arkimedeezMod.Items.Weapons.Venetration
 {
@@ -16,6 +17,8 @@ namespace arkimedeezMod.Items.Weapons.Venetration
     // This is great if you want to make melee weapons with complex swing behavior
     public class Venetration : ModItem
     {
+        public override string Texture => "arkimedeezMod/Items/Weapons/Venetration/Venetration";
+
         public override void SetDefaults()
         {
             // Common Properties
@@ -33,7 +36,7 @@ namespace arkimedeezMod.Items.Weapons.Venetration
             // Weapon Properties
             Item.knockBack = 7;  // The knockback of your sword, this is dynamically adjusted in the projectile code.
             Item.autoReuse = false; // This determines whether the weapon has autoswing
-            Item.damage = 20; // The damage of your sword, this is dynamically adjusted in the projectile code.
+            Item.damage = 25; // The damage of your sword, this is dynamically adjusted in the projectile code.
             Item.DamageType = ModContent.GetInstance<OmegaDamage>();
             Item.noUseGraphic = true; // This makes sure the item does not get shown when the player swings his hand
             Item.useStyle = ItemUseStyleID.Shoot;
@@ -87,7 +90,7 @@ namespace arkimedeezMod.Items.Weapons.Venetration
                     //Item.damage = 300;
                     Item.UseSound = new SoundStyle($"{nameof(arkimedeezMod)}/Assets/Audio/SwordSlash2");
                     Item.shoot = ModContent.ProjectileType<VenetrationThrownProjectile>();
-                    player.AddBuff(BuffID.BrokenArmor, 300);
+                    player.AddBuff(ModContent.BuffType<ShatteredArmor>(), 400);
                 }
                 else
                 {

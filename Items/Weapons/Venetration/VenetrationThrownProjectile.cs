@@ -14,7 +14,7 @@ namespace arkimedeezMod.Items.Weapons.Venetration
     {
         public override void SetStaticDefaults()
         {
-            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 3; // The length of old position to be recorded
+            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 6; // The length of old position to be recorded
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2; // The recording mode
         }
 
@@ -29,7 +29,6 @@ namespace arkimedeezMod.Items.Weapons.Venetration
             Projectile.penetrate = -1;
             Projectile.friendly = true;
             Projectile.extraUpdates = 1;
-            Projectile.damage = 300;
         }
 
         private Player Owner => Main.player[Projectile.owner];
@@ -43,9 +42,9 @@ namespace arkimedeezMod.Items.Weapons.Venetration
             Projectile.rotation += Projectile.velocity.Length() / 25;
             if (timeSinceThrown > 0)
             {
-                if (timeSinceThrown < 200)
+                if (timeSinceThrown < 120)
                 {
-                    Projectile.velocity *= 0.99f;
+                    Projectile.velocity *= 0.98f;
                 }
                 else
                 {
@@ -82,7 +81,7 @@ namespace arkimedeezMod.Items.Weapons.Venetration
             {
                 Vector2 drawPos = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
                 Color color = Projectile.GetAlpha(lightColor) * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length);
-                Main.EntitySpriteDraw(texture, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale * 1.2f, SpriteEffects.None, 0);
+                Main.EntitySpriteDraw(texture, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0);
             }
 
             return false;

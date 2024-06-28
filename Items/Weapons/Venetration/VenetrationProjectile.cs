@@ -16,7 +16,7 @@ namespace arkimedeezMod.Items.Weapons.Venetration
     {
         public override void SetStaticDefaults()
         {
-            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 3; // The length of old position to be recorded
+            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5; // The length of old position to be recorded
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2; // The recording mode
         }
 
@@ -29,10 +29,11 @@ namespace arkimedeezMod.Items.Weapons.Venetration
             Projectile.height = 204;
             Projectile.tileCollide = false;
             Projectile.penetrate = -1;
-            Projectile.friendly = true;
+            Projectile.friendly = false;
             Projectile.hostile = false;
             Projectile.extraUpdates = 0;
             Projectile.damage = 20;
+            //Projectile.stopsDealingDamageAfterPenetrateHits = true;
         }
 
         public bool aimingVertically;
@@ -87,11 +88,11 @@ namespace arkimedeezMod.Items.Weapons.Venetration
                 Projectile.Kill();
             }
 
-            if (Projectile.frameCounter == 18)
+            if (Projectile.frameCounter == 20)
             {
                 Projectile.friendly = true;
             }
-            else if (Projectile.frameCounter == 36)
+            else if (Projectile.frameCounter == 40)
             {
                 Projectile.friendly = false;
             }
@@ -106,26 +107,12 @@ namespace arkimedeezMod.Items.Weapons.Venetration
             if (Projectile.spriteDirection == -1)
             {
                 // If sprite is facing left, rotate
-                if (modPlayer.swordDirection > 0)
-                {
                     Projectile.rotation += MathHelper.ToRadians(-90);
-                }
-                else
-                {
-                    Projectile.rotation += MathHelper.ToRadians(-90);
-                }
             }
             else
             {
                 // If sprite is facing right, rotate
-                if (modPlayer.swordDirection > 0)
-                {
                     Projectile.rotation += MathHelper.ToRadians(90);
-                }
-                else
-                {
-                    Projectile.rotation += MathHelper.ToRadians(90);
-                }
             }
         }
 
@@ -137,31 +124,14 @@ namespace arkimedeezMod.Items.Weapons.Venetration
 
         public override bool PreDraw(ref Color lightColor)
         {
-            Main.instance.LoadProjectile(Projectile.type);
+            SpriteBatch spriteBatch = Main.spriteBatch;
             Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
-            SpriteEffects effects;
-            Player player = Main.player[Projectile.owner];
-            var modPlayer = player.GetModPlayer<ItemDirectionPlayer>();
-
-            Vector2 drawOrigin = new Vector2(texture.Width * 0.5f, Projectile.height * 0.5f);
-
-            if (modPlayer.swordDirection < 0)
+            for (int i = 0; i < ProjectileID.Sets.TrailCacheLength[Type]; i++)
             {
-                effects = SpriteEffects.FlipHorizontally;
+                Color color = Projectile.GetAlpha(lightColor) * ((Projectile.oldPos.Length - i) / (float)Projectile.oldPos.Length);
+                spriteBatch.Draw(texture, Projectile.oldPos[i] - Main.screenPosition + (Projectile.Center - Projectile.position), null, color * (1 - (float)i / 20), Projectile.oldRot[i], new Vector2(Projectile.width / 2, Projectile.height / 2), Projectile.scale, Projectile.oldSpriteDirection[i] == -1 ? SpriteEffects.FlipHorizontally : SpriteEffects.None, 0);
             }
-            else
-            {
-                effects = SpriteEffects.None;
-            }
-
-            for (int k = 0; k < Projectile.oldPos.Length; k++)
-            {
-                Vector2 drawPos = Projectile.oldPos[k] - Main.screenPosition + drawOrigin + new Vector2(0f, Projectile.gfxOffY);
-                Color color = Projectile.GetAlpha(lightColor) * ((Projectile.oldPos.Length - k) / (float)Projectile.oldPos.Length);
-                Main.EntitySpriteDraw(texture, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, effects, 0);
-            }
-
-            return false;
+            return true;
         }
     }
 }

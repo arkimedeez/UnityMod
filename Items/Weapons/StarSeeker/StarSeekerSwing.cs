@@ -9,7 +9,7 @@ using Terraria;
 using arkimedeezMod.DamageClasses;
 using arkimedeezMod.Buffs;
 
-namespace arkimedeezMod.Projectiles
+namespace arkimedeezMod.Items.Weapons.StarSeeker
 {
     public class StarSeekerSwing : ModProjectile
     {
@@ -180,7 +180,7 @@ namespace arkimedeezMod.Projectiles
             // The particles from the Particle Orchestra are predefined by vanilla and most can not be customized that much.
             // Use auto complete to see the other ParticleOrchestraType types there are.
             // Here we are spawning the Excalibur particle randomly inside of the target's hitbox.
-            ParticleOrchestrator.RequestParticleSpawn(clientOnly: false, ParticleOrchestraType.Excalibur,
+            ParticleOrchestrator.RequestParticleSpawn(clientOnly: false, ParticleOrchestraType.NightsEdge,
                 new ParticleOrchestraSettings { PositionInWorld = Main.rand.NextVector2FromRectangle(target.Hitbox) },
                 Projectile.owner);
 
@@ -188,17 +188,17 @@ namespace arkimedeezMod.Projectiles
             // Dust.NewDust(Main.rand.NextVector2FromRectangle(target.Hitbox), 0, 0, ModContent.DustType<Content.Dusts.Sparkle>());
 
             // Set the target's hit direction to away from the player so the knockback is in the correct direction.
-            hit.HitDirection = (Main.player[Projectile.owner].Center.X < target.Center.X) ? 1 : (-1);
+            hit.HitDirection = Main.player[Projectile.owner].Center.X < target.Center.X ? 1 : -1;
             UnityPlayer.OmegaChargeCurrent = UnityPlayer.OmegaChargeCurrent + 1f;
         }
 
         public override void OnHitPlayer(Player target, Player.HurtInfo info)
         {
-            ParticleOrchestrator.RequestParticleSpawn(clientOnly: false, ParticleOrchestraType.Excalibur,
+            ParticleOrchestrator.RequestParticleSpawn(clientOnly: false, ParticleOrchestraType.NightsEdge,
                 new ParticleOrchestraSettings { PositionInWorld = Main.rand.NextVector2FromRectangle(target.Hitbox) },
                 Projectile.owner);
 
-            info.HitDirection = (Main.player[Projectile.owner].Center.X < target.Center.X) ? 1 : (-1);
+            info.HitDirection = Main.player[Projectile.owner].Center.X < target.Center.X ? 1 : -1;
             UnityPlayer.OmegaChargeCurrent = UnityPlayer.OmegaChargeCurrent + 1f;
         }
 
@@ -211,7 +211,7 @@ namespace arkimedeezMod.Projectiles
             Rectangle sourceRectangle = texture.Frame(1, 4); // The sourceRectangle says which frame to use.
             Vector2 origin = sourceRectangle.Size() / 2f;
             float scale = Projectile.scale * 1.1f;
-            SpriteEffects spriteEffects = ((!(Projectile.ai[0] >= 0f)) ? SpriteEffects.FlipVertically : SpriteEffects.None); // Flip the sprite based on the direction it is facing.
+            SpriteEffects spriteEffects = !(Projectile.ai[0] >= 0f) ? SpriteEffects.FlipVertically : SpriteEffects.None; // Flip the sprite based on the direction it is facing.
             float percentageOfLife = Projectile.localAI[0] / Projectile.ai[1]; // The current time over the max time.
             float lerpTime = Utils.Remap(percentageOfLife, 0f, 0.6f, 0f, 1f) * Utils.Remap(percentageOfLife, 0.6f, 1f, 1f, 0f);
             float lightingColor = Lighting.GetColor(Projectile.Center.ToTileCoordinates()).ToVector3().Length() / (float)Math.Sqrt(3.0);
@@ -246,12 +246,12 @@ namespace arkimedeezMod.Projectiles
             for (float i = 0f; i < 8f; i += 1f)
             {
                 float edgeRotation = Projectile.rotation + Projectile.ai[0] * i * (MathHelper.Pi * -2f) * 0.025f + Utils.Remap(percentageOfLife, 0f, 1f, 0f, MathHelper.PiOver4) * Projectile.ai[0];
-                Vector2 drawPos = position + edgeRotation.ToRotationVector2() * ((float)texture.Width * 0.5f - 6f) * scale;
+                Vector2 drawPos = position + edgeRotation.ToRotationVector2() * (texture.Width * 0.5f - 6f) * scale;
                 DrawPrettyStarSparkle(Projectile.Opacity, SpriteEffects.None, drawPos, new Color(255, 255, 255, 0) * lerpTime * (i / 9f), middleMediumColor, percentageOfLife, 0f, 0.5f, 0.5f, 1f, edgeRotation, new Vector2(0f, Utils.Remap(percentageOfLife, 0f, 1f, 3f, 0f)) * scale, Vector2.One * scale);
             }
 
             // This draws a large star sparkle at the front of the projectile.
-            Vector2 drawPos2 = position + (Projectile.rotation + Utils.Remap(percentageOfLife, 0f, 1f, 0f, MathHelper.PiOver4) * Projectile.ai[0]).ToRotationVector2() * ((float)texture.Width * 0.5f - 4f) * scale;
+            Vector2 drawPos2 = position + (Projectile.rotation + Utils.Remap(percentageOfLife, 0f, 1f, 0f, MathHelper.PiOver4) * Projectile.ai[0]).ToRotationVector2() * (texture.Width * 0.5f - 4f) * scale;
             DrawPrettyStarSparkle(Projectile.Opacity, SpriteEffects.None, drawPos2, new Color(255, 255, 255, 0) * lerpTime * 0.5f, middleMediumColor, percentageOfLife, 0f, 0.5f, 0.5f, 1f, 0f, new Vector2(2f, Utils.Remap(percentageOfLife, 0f, 1f, 4f, 1f)) * scale, Vector2.One * scale);
 
             // Uncomment this line for a visual representation of the projectile's size.

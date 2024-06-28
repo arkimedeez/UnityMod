@@ -8,9 +8,9 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace arkimedeezMod.Projectiles
+namespace arkimedeezMod.Projectiles.Unused
 {
-    public class SkySplitterProjectileAlt : ModProjectile
+    public class ConjuringPiercerProjectile : ModProjectile
     {
         public override void SetStaticDefaults()
         {
@@ -20,29 +20,42 @@ namespace arkimedeezMod.Projectiles
 
         public override void SetDefaults()
         {
-            Projectile.width = 16; // The width of projectile hitbox
-            Projectile.height = 16; // The height of projectile hitbox
+            Projectile.width = 8; // The width of projectile hitbox
+            Projectile.height = 8; // The height of projectile hitbox
             Projectile.aiStyle = 1; // The ai style of the projectile, please reference the source code of Terraria
             Projectile.friendly = true; // Can the projectile deal damage to enemies?
             Projectile.hostile = false; // Can the projectile deal damage to the player?
             Projectile.DamageType = ModContent.GetInstance<OmegaDamage>();
-            Projectile.penetrate = -1; // How many monsters the projectile can penetrate. (OnTileCollide below also decrements penetrate for bounces as well)
+            Projectile.penetrate = 1; // How many monsters the projectile can penetrate. (OnTileCollide below also decrements penetrate for bounces as well)
             Projectile.timeLeft = 600; // The live time for the projectile (60 = 1 second, so 600 is 10 seconds)
             Projectile.alpha = 255; // The transparency of the projectile, 255 for completely transparent. (aiStyle 1 quickly fades the projectile in) Make sure to delete this if you aren't using an aiStyle that fades in. You'll wonder why your projectile is invisible.
             Projectile.light = 0.5f; // How much light emit around the projectile
             Projectile.ignoreWater = true; // Does the projectile's speed be influenced by water?
             Projectile.tileCollide = true; // Can the projectile collide with tiles?
-            Projectile.extraUpdates = 99; // Set to above 0 if you want the projectile to update multiple time in a frame
-            Projectile.damage = 200;
+            Projectile.extraUpdates = 1; // Set to above 0 if you want the projectile to update multiple time in a frame
 
             AIType = ProjectileID.Bullet; // Act exactly like default Bullet
         }
 
-        /*public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            Main.player[Projectile.owner].statMana += 10;
-        }*/
-
+            if (Main.player[Projectile.owner].maxMinions > 0)
+            {
+                target.AddBuff(BuffID.OnFire, Main.player[Projectile.owner].maxMinions * 120);
+            }
+            if (Main.player[Projectile.owner].maxMinions > 1)
+            {
+                target.AddBuff(BuffID.Poisoned, Main.player[Projectile.owner].maxMinions * 120);
+            }
+            if (Main.player[Projectile.owner].maxMinions > 2)
+            {
+                target.AddBuff(BuffID.Frostburn, Main.player[Projectile.owner].maxMinions * 120);
+            }
+            if (Main.player[Projectile.owner].maxMinions > 3)
+            {
+                target.AddBuff(BuffID.Ichor, Main.player[Projectile.owner].maxMinions * 120);
+            }
+        }
         public override bool PreDraw(ref Color lightColor)
         {
             Main.instance.LoadProjectile(Projectile.type);
@@ -62,25 +75,17 @@ namespace arkimedeezMod.Projectiles
 
         public override void OnKill(int timeLeft)
         {
+            // This code and the similar code above in OnTileCollide spawn dust from the tiles collided with. SoundID.Item10 is the bounce sound you hear.
             Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
             SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
         }
-
-        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
-        {
-            Projectile.damage = Convert.ToInt32(Math.Round(Projectile.damage * 0.5));
-        }
-
         public override void AI()
         {
-            Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Cloud, Projectile.velocity.X * 0f, Projectile.velocity.Y * 0f, Alpha: 128, Scale: 1.2f);
-            Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.BlueCrystalShard, Projectile.velocity.X * 0f, Projectile.velocity.Y * 0f, Alpha: 128, Scale: 1.2f);
-            Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Cloud, Projectile.velocity.X * 0f, Projectile.velocity.Y * 0f, Alpha: 128, Scale: 1.2f);
-            Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.BlueCrystalShard, Projectile.velocity.X * 0f, Projectile.velocity.Y * 0f, Alpha: 128, Scale: 1.2f);
-            Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Cloud, Projectile.velocity.X * 0f, Projectile.velocity.Y * 0f, Alpha: 128, Scale: 1.2f);
-            Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.BlueCrystalShard, Projectile.velocity.X * 0f, Projectile.velocity.Y * 0f, Alpha: 128, Scale: 1.2f);
-            Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Cloud, Projectile.velocity.X * 0f, Projectile.velocity.Y * 0f, Alpha: 128, Scale: 1.2f);
-            Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.BlueCrystalShard, Projectile.velocity.X * 0f, Projectile.velocity.Y * 0f, Alpha: 128, Scale: 1.2f);
+            int random = Main.rand.Next(1, 5);
+            if (random == 3)
+            {
+                Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.Cloud, Projectile.velocity.X * 0f, Projectile.velocity.Y * 0f, Alpha: 128, Scale: 1.2f);
+            }
         }
     }
 }

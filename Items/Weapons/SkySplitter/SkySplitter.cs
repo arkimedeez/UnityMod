@@ -1,6 +1,5 @@
 ﻿using arkimedeezMod.Buffs.StatBoosts;
 using arkimedeezMod.DamageClasses;
-using arkimedeezMod.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;

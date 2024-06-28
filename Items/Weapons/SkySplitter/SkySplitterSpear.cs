@@ -1,11 +1,10 @@
 ﻿using arkimedeezMod.DamageClasses;
-using arkimedeezMod.Items.Weapons.SkySplitter;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace arkimedeezMod.Projectiles
+namespace arkimedeezMod.Items.Weapons.SkySplitter
 {
     public class SkySplitterSpear : ModProjectile
     {

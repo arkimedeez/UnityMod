@@ -34,7 +34,7 @@ namespace arkimedeezMod.Items.Armor.HeavengoldArmor
 
         public override void UpdateEquip(Player player)
         {
-            player.GetDamage(DamageClass.Generic) += 7 / 100f;
+            player.GetDamage(DamageClass.Generic) += 0.07f;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
