@@ -11,11 +11,12 @@ namespace arkimedeezMod.Items.Armor.HeavengoldArmor
     [AutoloadEquip(EquipType.Head)]
     public class HeavengoldHelmet : ModItem
     {
+        public int DamageBonus = 7;
         public int MovmentSpeedBonusPercent = 10;
         public int MeleeAttackSpeedBonus = 15;
         public int RangedCritBonus = 15;
         public int MaxMinionBonus = 2;
-        public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs("7% increased damage");
+        public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(DamageBonus);
         public override void SetDefaults()
         {
             Item.width = 34; // Width of the item
