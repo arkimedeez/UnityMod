@@ -1,4 +1,5 @@
-﻿using arkimedeezMod.Buffs.StatBoosts;
+﻿using arkimedeezMod.Buffs;
+using arkimedeezMod.Buffs.StatBoosts;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -10,6 +11,35 @@ namespace arkimedeezMod.DamageClasses
     public class ItemDirectionPlayer : ModPlayer
     {
         public float swordDirection = 1f;
+    }
+
+    public class PlayerEvents : ModPlayer
+    {
+        public bool UnholyArtifact;
+        public bool BloodlustDagger;
+
+        public override void ResetEffects()
+        {
+            UnholyArtifact = false;
+            BloodlustDagger = false;
+        }
+
+        public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
+        {
+            if (BloodlustDagger)
+            {
+                target.AddBuff(BuffID.Frostburn, 300);
+            }
+        }
+
+        public override void PostHurt(Player.HurtInfo info)
+        {
+            if (UnholyArtifact)
+            {
+                Player.AddBuff(ModContent.BuffType<ShatteredArmor>(), 600);
+                return;
+            }
+        }
     }
 
     public class UnityPlayer : ModPlayer

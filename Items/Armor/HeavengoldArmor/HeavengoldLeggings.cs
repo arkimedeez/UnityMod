@@ -24,6 +24,7 @@ namespace arkimedeezMod.Items.Armor.HeavengoldArmor
 
         public override void UpdateEquip(Player player)
         {
+            player.GetDamage(DamageClass.Generic) += 0.05f;
             player.moveSpeed *= 1 + (MovmentSpeedBonusPercent/100f);
         }
 

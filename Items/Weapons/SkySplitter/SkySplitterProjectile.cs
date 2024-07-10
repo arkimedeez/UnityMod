@@ -1,5 +1,4 @@
 ﻿using arkimedeezMod.DamageClasses;
-using arkimedeezMod.Items.Weapons.SkySplitter;
 using Microsoft.CodeAnalysis;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -14,7 +13,7 @@ using Terraria.ID;
 using Terraria.ModLoader;
 using static tModPorter.ProgressUpdate;
 
-namespace arkimedeezMod.Projectiles
+namespace arkimedeezMod.Items.Weapons.SkySplitter
 {
     // ExampleCustomSwingSword is an example of a sword with a custom swing using a held projectile
     // This is great if you want to make melee weapons with complex swing behavior
@@ -46,7 +45,7 @@ namespace arkimedeezMod.Projectiles
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            UnityPlayer.OmegaChargeCurrent = UnityPlayer.OmegaChargeCurrent + 1f;
+            UnityPlayer.OmegaChargeCurrent = UnityPlayer.OmegaChargeCurrent + 0.75f;
         }
 
         private Player Owner => Main.player[Projectile.owner];
@@ -70,7 +69,7 @@ namespace arkimedeezMod.Projectiles
                 Projectile.Center = Owner.Center;
                 Projectile.rotation += r;
                 r += 0.04f;
-                if(r > 0.3)
+                if (r > 0.3)
                 {
                     r = 0.3f;
                 }
@@ -80,10 +79,10 @@ namespace arkimedeezMod.Projectiles
                 Projectile.Kill();
             }
 
-            if(SoundCooldown < 1.5)
+            if (SoundCooldown < 1.5)
             {
                 SoundCooldown = SoundCooldown + 0.1f;
-            } 
+            }
             else
             {
                 SoundEngine.PlaySound(SoundID.Item1);

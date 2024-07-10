@@ -87,8 +87,6 @@ namespace arkimedeezMod.Items.Weapons.Aerokana
             return false; // return false to prevent original projectile from being shot
         }
 
-        public override bool MeleePrefix() => true; // return true to allow weapon to have melee prefixes (e.g. Legendary)
-
         public override void AddRecipes()
         {
             CreateRecipe()

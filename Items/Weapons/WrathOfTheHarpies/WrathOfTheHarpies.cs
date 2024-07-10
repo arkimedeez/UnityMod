@@ -1,6 +1,5 @@
 ﻿using arkimedeezMod.DamageClasses;
 using arkimedeezMod.Items.Materials;
-using arkimedeezMod.Projectiles;
 using Microsoft.Xna.Framework;
 using System;
 using Terraria;
@@ -25,8 +24,9 @@ namespace arkimedeezMod.Items.Weapons.WrathOfTheHarpies
             Item.rare = ItemRarityID.Orange;
 
             //Common stats 
-            Item.damage = 7;
-            Item.crit = -10;
+            Item.damage = 13;
+            Item.crit = 2;
+            Item.knockBack = 1f;
             Item.DamageType = ModContent.GetInstance<OmegaDamage>();
 
             // Use Properties
@@ -66,10 +66,8 @@ namespace arkimedeezMod.Items.Weapons.WrathOfTheHarpies
                 Item.UseSound = SoundID.Item5; // The sound when the weapon is being used.
                 Item.reuseDelay = 32;
    
-                Item.crit = 4;
-                Item.damage = 20;
-                Item.shoot = ModContent.ProjectileType<FeatherProjectile>();
-               
+                Item.crit = 2;
+                Item.damage = 13;
             }
             else
             {
@@ -80,11 +78,7 @@ namespace arkimedeezMod.Items.Weapons.WrathOfTheHarpies
                     Item.useTime = 4; // The item's use time in ticks (60 ticks == 1 second.)
                     Item.useAnimation = 92; // The length of the item's use animation in ticks (60 ticks == 1 second.)
                     Item.useStyle = ItemUseStyleID.Shoot; // How you use the item (swinging, holding out, etc.)
-                    Item.autoReuse = false; // Whether or not you can hold click to automatically use it again.
-                  
-
-                    // Weapon Properties
-                    Item.DamageType = ModContent.GetInstance<OmegaDamage>();
+                    Item.autoReuse = false; // Whether or not you can hold click to automatically use it again
                 
                     UnityPlayer.OmegaChargeCurrent = 0;
                     Item.UseSound = new SoundStyle($"{nameof(arkimedeezMod)}/Assets/Audio/Gunshot3")
@@ -93,11 +87,6 @@ namespace arkimedeezMod.Items.Weapons.WrathOfTheHarpies
                         PitchVariance = 0f,
                         MaxInstances = 3,
                     };
-                } 
-                else
-                {
-                    Item.shoot = ProjectileID.None;
-                    Item.UseSound = SoundID.Item1;
                 }
             }
                 return base.CanUseItem(player);
@@ -119,14 +108,13 @@ namespace arkimedeezMod.Items.Weapons.WrathOfTheHarpies
         {
             if (ShootType == 0)
             {
-                //Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<FeatherProjectile>(), damage, knockback, Main.myPlayer);
                 Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<FeatherProjectile>(), damage, knockback, Main.myPlayer);
                 return false; // return false to prevent original projectile from being shot
             }
             else
             {
-                Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<FeatherProjectileAlt1>(), Convert.ToInt32(Math.Round(damage * 3.5)), knockback, Main.myPlayer);
-                Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<FeatherProjectileAlt2>(), Convert.ToInt32(Math.Round(damage * 3.5)), knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<FeatherProjectileAlt1>(), Convert.ToInt32(Math.Round(damage * 2.5)), knockback, Main.myPlayer);
+                Projectile.NewProjectile(source, position, velocity, ModContent.ProjectileType<FeatherProjectileAlt2>(), Convert.ToInt32(Math.Round(damage * 2.5)), knockback, Main.myPlayer);
                 return false;
             }
         }

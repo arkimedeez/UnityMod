@@ -1,5 +1,4 @@
 ﻿using arkimedeezMod.DamageClasses;
-using arkimedeezMod.Projectiles;
 using Microsoft.Xna.Framework;
 using Terraria;
 using Terraria.Audio;
@@ -15,7 +14,7 @@ namespace arkimedeezMod.Items.Weapons.StarSeeker
     {
         public override void SetDefaults()
         {
-            Item.damage = 40; // The damage your item deals.
+            Item.damage = 35; // The damage your item deals.
             Item.crit = 15; // The critical strike chance the weapon has. The player, by default, has a 4% critical strike chance.
             Item.knockBack = 6; // The force of knockback of the weapon. Maximum is 20
 
@@ -53,7 +52,7 @@ namespace arkimedeezMod.Items.Weapons.StarSeeker
                 ShootType = 1;
                 Item.useTime = 6;
                 UnityPlayer.OmegaChargeCurrent = 0f;
-                player.AddBuff(ModContent.BuffType<LifeRegenII>(), 1200);
+                player.AddBuff(ModContent.BuffType<LifeRegenII>(), 600);
                 Item.UseSound = new SoundStyle($"{nameof(arkimedeezMod)}/Assets/Audio/SwordSlash3")
                 {
                     Volume = 2.5f,
@@ -106,7 +105,7 @@ namespace arkimedeezMod.Items.Weapons.StarSeeker
                 Dust.NewDust(new Vector2(hitbox.X, hitbox.Y), hitbox.Width, hitbox.Height, DustID.PinkCrystalShard);
             }
         }
-        public override bool MeleePrefix() => true;
+
         public override void AddRecipes()
         {
             CreateRecipe()

@@ -19,6 +19,8 @@ namespace arkimedeezMod.DamageClasses
                 return StatInheritanceData.Full;
             if (damageClass == DamageClass.Summon)
                 return StatInheritanceData.Full;
+            if (damageClass == DamageClass.Throwing)
+                return StatInheritanceData.Full;
 
             return new StatInheritanceData(
                 damageInheritance: 1f,

@@ -1,4 +1,4 @@
-﻿using arkimedeezMod.DamageClasses;
+﻿ using arkimedeezMod.DamageClasses;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using System;
@@ -10,7 +10,7 @@ using Terraria.GameContent;
 using Terraria.ID;
 using Terraria.ModLoader;
 
-namespace arkimedeezMod.Items
+namespace arkimedeezMod.Items.Weapons.Aerokana
 {
     // ExampleCustomSwingSword is an example of a sword with a custom swing using a held projectile
     // This is great if you want to make melee weapons with complex swing behavior
@@ -300,13 +300,13 @@ namespace arkimedeezMod.Items
         // Function facilitating the latter half of the swing where the sword disappears
         private void UnwindStrike()
         {
-                Progress = MathHelper.SmoothStep(0, SPINRANGE, 1f - UNWIND / 2 + UNWIND / 2 * Timer / (hideTime * SPINTIME / 2));
-                Size = 1f - MathHelper.SmoothStep(0, 1, Timer / (hideTime * SPINTIME / 2));
+            Progress = MathHelper.SmoothStep(0, SPINRANGE, 1f - UNWIND / 2 + UNWIND / 2 * Timer / (hideTime * SPINTIME / 2));
+            Size = 1f - MathHelper.SmoothStep(0, 1, Timer / (hideTime * SPINTIME / 2));
 
-                if (Timer >= hideTime * SPINTIME / 2)
-                {
-                    Projectile.Kill();
-                }
+            if (Timer >= hideTime * SPINTIME / 2)
+            {
+                Projectile.Kill();
+            }
         }
     }
 }

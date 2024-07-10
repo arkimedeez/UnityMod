@@ -1,3 +1,3 @@
-displayName = [c/6035ff:Unity][c/4a20e3: Mod] [INDEV]
+displayName = [c/6035ff:United Horizons] [INDEV]
 author = arkimedeez
-version = 2.01
+version = 2.04

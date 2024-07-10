@@ -69,31 +69,6 @@ Items: {
 			'''
 	}
 
-	SkyKingsScepter: {
-		DisplayName: Cetro del Rey Celestial
-		Tooltip:
-			'''
-			Usa [c/C35BEF:2 minion slots] para invocar a un guardian celestial poderosamente grande.
-			Tener un guardián convocado te dará 10 de defensa adicional (no se acumula con más guardianes celestiales).
-			[c/dfbd00:Esta arma fué aportada por ThePow2 (Gracias por ayudarme con las texturas y el lore del mod).]
-			'''
-	}
-
-	ConjuringPiercer: {
-		DisplayName: Perforador conjurador
-		Tooltip:
-			'''
-			Las balas normales se convierten en un proyectil de conjuro que aplica desventajas dependiendo de tu [c/C35BEF: espacio de súbditos] tengas.
-			No importa si utilizas [c/C35BEF: espacio de súbditos] o no.
-			Cada [c/C35BEF: espacio de súbditos] que tengas añade 2 segundos para cada desventajas.
-
-			Esta arma siempre aplicará el efecto de En llamas, y cada desventaja que desbloquees se agrega a todas las desventajas anteriores.		
-			Cuando tienes 2 o mas [c/C35BEF: espacios de súbditos], aplicará veneno.
-			Cuando tienes 3 o mas [c/C35BEF: espacios de súbditos], aplicará fuego helado.
-			Cuando tienes 4 o mas [c/C35BEF: espacios de súbditos], aplicará fuego ichor.
-			'''
-	}
-
 	AAtest: {
 		DisplayName: A Atest
 		Tooltip: ""
@@ -133,7 +108,7 @@ Items: {
 
 	HeavengoldHelmet: {
 		DisplayName: Casco de oro sagrado
-		// Tooltip: "{$CommonItemTooltip.PercentIncreasedDamage}."
+		// Tooltip: 7% increased damage.
 		SetBonus:
 			'''
 			{$CommonItemTooltip.IncreasesMaxMinionsBy}
@@ -145,12 +120,63 @@ Items: {
 
 	HeavengoldLeggings: {
 		DisplayName: Perneras de Oro Divino
-		// Tooltip: "{$CommonItemTooltip.PercentIncreasedMovementSpeed}."
+		// Tooltip: 7% increased movement speed and 5% increased damage
 	}
 
 	Venetration: {
 		DisplayName: Veneración
 		Tooltip: ""
+	}
+
+	SangioveseBoiler: {
+		// DisplayName: Sangiovese Boiler
+		// Tooltip: "[c/6035ff:Omega attacks] release two giant chunks of flesh that inflict ichor upon the target."
+	}
+
+	SangriaEvaporator: {
+		// Tooltip: "[c/6035ff:Omega attacks] release an unrelenting flurry of beams and temporarily increase your defenese."
+		// DisplayName: Sangria Evaporator
+	}
+
+	SanguineChestplate: {
+		// DisplayName: Sanguine Chestplate
+		// Tooltip: Increases damage reduction by 5% and grants +1 life regen
+	}
+
+	SanguineHelmet: {
+		// SetBonus: +5 life regen
+		// DisplayName: Sanguine Helmet
+		// Tooltip: +1 life regen
+	}
+
+	SanguineHeadguard: {
+		// SetBonus: Increases defense by 15
+		// DisplayName: Sanguine Headguard
+		// Tooltip: +5% damage reduction
+	}
+
+	SanguineLeggings: {
+		// DisplayName: Sanguine Leggings
+		// Tooltip: ""
+	}
+
+	UnholyArtifact: {
+		// DisplayName: Unholy Artifact
+		/* Tooltip:
+			'''
+			Increases defense by 15
+			After getting hit, your take much more damage for a short amount of time
+			''' */
+	}
+
+	CrimsonAegis: {
+		// DisplayName: Crimson Aegis
+		// Tooltip: Increases your defense the lower on health you are on
+	}
+
+	BloodlustDagger: {
+		// DisplayName: Bloodlust Dagger
+		// Tooltip: Attacks inflict... frostburn? How does that make sense? ...oh yeah, that's just a placeholder debuff
 	}
 }
 
@@ -181,18 +207,12 @@ Projectiles: {
 	FeatherProjectileAlt1.DisplayName: Feather Projectile Alt1
 	// VenetrationProjectile.DisplayName: Venetration Projectile
 	// VenetrationThrownProjectile.DisplayName: Venetration Thrown Projectile
+	// SangioveseBoilerProjectile.DisplayName: Sangiovese Boiler Projectile
+	// SangioveseBoilerAltProjectile.DisplayName: Sangiovese Boiler Alt Projectile
+	// SangriaEvaporatorProjectile.DisplayName: Sangria Evaporator Projectile
 }
 
 Buffs: {
-	CorimsWarlockRevolverAbilityCooldown: {
-		DisplayName: Reutilización del Revólver brujo de Corim
-		Description:
-			'''
-			!Tengo que poner al menos ALGO de esfuerzo para equilibrar este maldito mod! (Si no lo pudiste ver en la oración anterior, realmente no me gusta el equilibrio. Solo quiero que un arma divertida pueda ir al banco) 
-			(Nota del traductor: na,yo tampoco puse esfuerzo en traducir estaa descripción xd)
-			'''
-	}
-
 	LifeRegenI: {
 		DisplayName: regeneración I
 		Description: Aumenta la regeneración de vida
@@ -266,6 +286,25 @@ Buffs: {
 	SpeedV: {
 		DisplayName: Velocidad V
 		Description: Aumenta la velocidad de movimiento y la aceleración
+	}
+
+	DefenseII: {
+		// DisplayName: Defense II
+		// Description: Increased defense
+	}
+
+	CorimsWarlockRevolverAbilityCooldown: {
+		Description:
+			'''
+			!Tengo que poner al menos ALGO de esfuerzo para equilibrar este maldito mod! (Si no lo pudiste ver en la oración anterior, realmente no me gusta el equilibrio. Solo quiero que un arma divertida pueda ir al banco) 
+			(Nota del traductor: na,yo tampoco puse esfuerzo en traducir estaa descripción xd)
+			'''
+		DisplayName: Reutilización del Revólver brujo de Corim
+	}
+
+	ShatteredArmor: {
+		// DisplayName: Shattered Armor
+		// Description: Your armor has been shattered!
 	}
 }
 

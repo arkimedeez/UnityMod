@@ -1,4 +1,5 @@
-﻿using arkimedeezMod.DamageClasses;
+﻿using arkimedeezMod.Buffs.StatBoosts;
+using arkimedeezMod.DamageClasses;
 using arkimedeezMod.Items.Materials;
 using System;
 using Terraria;
@@ -20,11 +21,8 @@ namespace arkimedeezMod.Items.Accessories.HeartOfGold
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            if (UnityPlayer.OmegaWeaponHeldTimer > 0)
-            {
-                player.GetDamage(DamageClass.Generic) += 15 / 100f;
-                player.lifeRegen *= Convert.ToInt32(Math.Round(player.lifeRegen * 0.5));
-            }
+            player.GetDamage(DamageClass.Generic) += 15 / 100f;
+                player.lifeRegen += -3;
         }
 
         public override void AddRecipes()
