@@ -1,6 +1,7 @@
 ﻿using arkimedeezMod.Buffs.StatBoosts;
 using arkimedeezMod.DamageClasses;
 using Microsoft.Xna.Framework;
+using Steamworks;
 using Terraria;
 using Terraria.Audio;
 using Terraria.DataStructures;
@@ -24,7 +25,7 @@ namespace arkimedeezMod.Items.Weapons.SkySplitter
 
             Item.Size = new(128,128);
             Item.value = Item.sellPrice(gold: 1, silver: 50);
-            Item.rare = ItemRarityID.Orange;
+            Item.rare = ItemRarityID.LightRed;
 
             Item.useTime = 40;
             Item.useAnimation = 40;
@@ -33,19 +34,20 @@ namespace arkimedeezMod.Items.Weapons.SkySplitter
             Item.channel = true;
 
             // Weapon Properties
-            Item.knockBack = 7;  // The knockback of your sword, this is dynamically adjusted in the projectile code.
+            Item.knockBack = 1;  // The knockback of your sword, this is dynamically adjusted in the projectile code.
             Item.autoReuse = false; // This determines whether the weapon has autoswing
-            Item.damage = 6; // The damage of your sword, this is dynamically adjusted in the projectile code.
+            Item.damage = 50; // The damage of your sword, this is dynamically adjusted in the projectile code.
             Item.DamageType = ModContent.GetInstance<OmegaDamage>();
             Item.noMelee = true;  // This makes sure the item does not deal damage from the swinging animation
             Item.noUseGraphic = true; // This makes sure the item does not get shown when the player swings his hand
             Item.shoot = ModContent.ProjectileType<SkySplitterProjectile>();
-            Item.useAnimation = 40;
-            Item.useStyle = ItemUseStyleID.Shoot;
+            Item.UseSound = new SoundStyle($"{nameof(arkimedeezMod)}/Assets/Audio/SpinningSword")
+            {
+                Volume = 0.2f,
+                PitchVariance = 0.1f,
+                MaxInstances = 3,
+            };
         }
-
-
-
 
         public override bool AltFunctionUse(Player player) => true;
 
@@ -56,14 +58,11 @@ namespace arkimedeezMod.Items.Weapons.SkySplitter
             if (player.altFunctionUse != 2)
             {
                 RightClickAbility = false;
-                Item.useTime = 40;
-                Item.useAnimation = 40;
                 Item.useStyle = ItemUseStyleID.Shoot;
                 Item.channel = true;
                 Item.autoReuse = false; // This determines whether the weapon has autoswing
                 Item.shoot = ModContent.ProjectileType<SkySplitterProjectile>();
                 Item.shootSpeed = 0;
-                Item.UseSound = SoundID.Item1;
                 return base.CanUseItem(player);
             }
             else
@@ -76,32 +75,37 @@ namespace arkimedeezMod.Items.Weapons.SkySplitter
                     Item.autoReuse = true;
                     Item.useAnimation = 18; // The length of the item's use animation in ticks (60 ticks == 1 second.)
                     Item.useTime = 18; // The length of the item's use time in ticks (60 ticks == 1 second.)
-                    Item.UseSound = new SoundStyle($"{nameof(arkimedeezMod)}/Assets/Audio/SwordSlash2");
                     Item.useStyle = ItemUseStyleID.Thrust;
                     Item.channel = false;
                     UnityPlayer.OmegaChargeCurrent = 0;
                     player.AddBuff(ModContent.BuffType<SpeedII>(), 1200);
-                } 
+                }
                 else
                 {
                     Item.shoot = ProjectileID.None;
-                    Item.UseSound = SoundID.Item1;
                 }
                 return base.CanUseItem(player);
             }
         }
-
 
         public override bool? UseItem(Player player)
         {
             // Because we're skipping sound playback on use animation start, we have to play it ourselves whenever the item is actually used.
             if (!Main.dedServ && Item.UseSound.HasValue)
             {
-                SoundEngine.PlaySound(Item.UseSound.Value, player.Center);
+                if(RightClickAbility == false)
+                {
+                    SoundEngine.PlaySound(Item.UseSound.Value, player.Center);
+                }
+                else
+                {
+                    SoundStyle sound = new SoundStyle($"{nameof(arkimedeezMod)}/Assets/Audio/SwordSlash2");
+                    SoundEngine.PlaySound(sound with { Volume = 2f });
+                }
             }
-
             return null;
         }
+
         public override bool MeleePrefix() => true; // return true to allow weapon to have melee prefixes (e.g. Legendary)
 
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
@@ -113,9 +117,8 @@ namespace arkimedeezMod.Items.Weapons.SkySplitter
         {
             if(RightClickAbility == true)
             {
-                Projectile.NewProjectileDirect(Projectile.GetSource_None(), position, velocity, ModContent.ProjectileType<SkySplitterProjectileAlt>(), damage*25, knockback);
-
-                return base.Shoot(player, source, position, velocity, type, damage*25, knockback);
+                Projectile.NewProjectileDirect(Projectile.GetSource_None(), position, velocity, ModContent.ProjectileType<SkySplitterProjectileAlt>(), damage*10, knockback);
+                return base.Shoot(player, source, position, velocity, type, damage*10, knockback);
             }
             else
             {
@@ -127,8 +130,7 @@ namespace arkimedeezMod.Items.Weapons.SkySplitter
         {
             CreateRecipe()
             .AddIngredient<Materials.HeavengoldBar>(10)
-            .AddIngredient(ItemID.Bone, 15)
-            .AddTile(TileID.Anvils)
+            .AddTile(TileID.MythrilAnvil)
             .Register();
         }
     }

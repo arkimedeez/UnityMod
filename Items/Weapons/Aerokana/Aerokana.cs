@@ -23,7 +23,7 @@ namespace arkimedeezMod.Items.Weapons.Aerokana
             Item.width = 64;
             Item.height = 64;
             Item.value = Item.sellPrice(gold: 1, silver: 50);
-            Item.rare = ItemRarityID.Orange;
+            Item.rare = ItemRarityID.LightRed;
 
             Item.useTime = 20;
             Item.useAnimation = 20;
@@ -32,14 +32,13 @@ namespace arkimedeezMod.Items.Weapons.Aerokana
             Item.shootSpeed = 0;
             Item.knockBack = 7;  // The knockback of your sword, this is dynamically adjusted in the projectile code.
             Item.autoReuse = true; // This determines whether the weapon has autoswing
-            Item.damage = 25; // The damage of your sword, this is dynamically adjusted in the projectile code.
+            Item.damage = 94; // The damage of your sword, this is dynamically adjusted in the projectile code.
             Item.DamageType = ModContent.GetInstance<OmegaDamage>();
             Item.noMelee = true;  // This makes sure the item does not deal damage from the swinging animation
             Item.noUseGraphic = true; // This makes sure the item does not get shown when the player swings his hand
 
             Item.shoot = ModContent.ProjectileType<AerokanaProjectile>(); // The sword as a projectile
         }
-
 
         public override bool AltFunctionUse(Player player) => true;
 
@@ -91,8 +90,7 @@ namespace arkimedeezMod.Items.Weapons.Aerokana
         {
             CreateRecipe()
             .AddIngredient<HeavengoldBar>(10)
-            .AddIngredient(ItemID.Muramasa, 1)
-            .AddTile(TileID.Anvils)
+            .AddTile(TileID.MythrilAnvil)
             .Register();
         }
     }

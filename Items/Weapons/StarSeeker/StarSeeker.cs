@@ -14,7 +14,7 @@ namespace arkimedeezMod.Items.Weapons.StarSeeker
     {
         public override void SetDefaults()
         {
-            Item.damage = 35; // The damage your item deals.
+            Item.damage = 80; // The damage your item deals.
             Item.crit = 15; // The critical strike chance the weapon has. The player, by default, has a 4% critical strike chance.
             Item.knockBack = 6; // The force of knockback of the weapon. Maximum is 20
 
@@ -23,13 +23,13 @@ namespace arkimedeezMod.Items.Weapons.StarSeeker
 
             Item.shoot = ModContent.ProjectileType<StarSeekerSwing>();
 
-            Item.Size = new Vector2(60,60); // its the same that  Item.width = 60; and  Item.height = 60;
+            Item.Size = new Vector2(60, 60); // its the same that  Item.width = 60; and  Item.height = 60;
             Item.value = Item.sellPrice(gold: 1, silver: 50);
-            Item.rare = ItemRarityID.Orange;
+            Item.rare = ItemRarityID.LightRed;
 
             Item.useStyle = ItemUseStyleID.Swing; // The useStyle of the Item.
             Item.autoReuse = true; // Whether the weapon can be used more than once automatically by holding the use button.
-            Item.DamageType = ModContent.GetInstance<OmegaDamage>();         
+            Item.DamageType = ModContent.GetInstance<OmegaDamage>();
             Item.noMelee = true;
 
             Item.UseSound = new SoundStyle($"{nameof(arkimedeezMod)}/Assets/Audio/SwordSlash7")
@@ -90,7 +90,7 @@ namespace arkimedeezMod.Items.Weapons.StarSeeker
             {
                 Vector2 perturbedSpeed = velocity.RotatedBy(MathHelper.Lerp(-rotation, rotation, i / (numberProjectiles - 1))) * .2f;
 
-                Projectile.NewProjectile(source, position, perturbedSpeed, ModContent.ProjectileType<StarSeekerProjectile>(), damage / 4, knockback);
+                Projectile.NewProjectile(source, position, perturbedSpeed, ModContent.ProjectileType<StarSeekerProjectile>(), damage / 2, knockback);
             }
 
             return base.Shoot(player, source, position, velocity, type, damage, knockback);
@@ -109,10 +109,8 @@ namespace arkimedeezMod.Items.Weapons.StarSeeker
         public override void AddRecipes()
         {
             CreateRecipe()
-            .AddIngredient<HeavengoldBar>(8)
-            .AddIngredient(ItemID.MeteoriteBar, 8)
+            .AddIngredient<HeavengoldBar>(6)
             .AddIngredient(ItemID.Starfury)
-            .AddIngredient(ItemID.BandofRegeneration)
             .AddTile(TileID.Anvils)
             .Register();
         }

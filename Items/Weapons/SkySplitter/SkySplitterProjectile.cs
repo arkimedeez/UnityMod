@@ -24,18 +24,16 @@ namespace arkimedeezMod.Items.Weapons.SkySplitter
         public override void SetStaticDefaults()
         {
             ProjectileID.Sets.HeldProjDoesNotUsePlayerGfxOffY[Type] = true;
-            ProjectileID.Sets.TrailCacheLength[Projectile.type] = 50; // The length of old position to be recorded
-            ProjectileID.Sets.TrailingMode[Projectile.type] = 0; // The recording mode
         }
 
         public override void SetDefaults()
         {
-            Projectile.width = 316; // The width of projectile hitbox
-            Projectile.height = 316; // The height of projectile hitbox
+            Projectile.width = 186; // The width of projectile hitbox
+            Projectile.height = 186; // The height of projectile hitbox
             Projectile.friendly = true; // Can the projectile deal damage to enemies?
             Projectile.hostile = false; // Can the projectile deal damage to the player?
             Projectile.DamageType = ModContent.GetInstance<OmegaDamage>();
-            Projectile.timeLeft = 1000;
+            Projectile.timeLeft = 6000;
             Projectile.penetrate = -1; // How many monsters the projectile can penetrate. (OnTileCollide below also decrements penetrate for bounces as well)
             Projectile.light = 0.5f; // How much light emit around the projectile
             Projectile.ignoreWater = true; // Does the projectile's speed be influenced by water?
@@ -45,20 +43,22 @@ namespace arkimedeezMod.Items.Weapons.SkySplitter
 
         public override void OnHitNPC(NPC target, NPC.HitInfo hit, int damageDone)
         {
-            UnityPlayer.OmegaChargeCurrent = UnityPlayer.OmegaChargeCurrent + 0.75f;
+            UnityPlayer.OmegaChargeCurrent += 0.75f;
         }
 
         private Player Owner => Main.player[Projectile.owner];
 
-        float r = 0;
+        float r = 0.25f;
 
         float SoundCooldown = 0;
 
-        //public bool TextShown = false;
+        SoundStyle Swish = new SoundStyle($"{nameof(arkimedeezMod)}/Assets/Audio/SpinningSword");
 
         public override void AI()
         {
             // Kill the projectile if the player dies or gets crowd controlled
+            Owner.heldProj = Projectile.whoAmI;
+            Owner.SetDummyItemTime(2);
             if (!Owner.active || Owner.dead || Owner.noItems || Owner.CCed || Owner.HeldItem.ModItem is not SkySplitter)
             {
                 Projectile.Kill();
@@ -68,8 +68,8 @@ namespace arkimedeezMod.Items.Weapons.SkySplitter
             {
                 Projectile.Center = Owner.Center;
                 Projectile.rotation += r;
-                r += 0.04f;
-                if (r > 0.3)
+                r += 0.005f;
+                if (r > 0.3f)
                 {
                     r = 0.3f;
                 }
@@ -79,13 +79,13 @@ namespace arkimedeezMod.Items.Weapons.SkySplitter
                 Projectile.Kill();
             }
 
-            if (SoundCooldown < 1.5)
+            if (SoundCooldown < 2)
             {
                 SoundCooldown = SoundCooldown + 0.1f;
             }
             else
             {
-                SoundEngine.PlaySound(SoundID.Item1);
+                SoundEngine.PlaySound(Swish with { Volume = 0.2f } with { PitchVariance = 0.2f });
                 SoundCooldown = 0;
             }
             /*if(OmegaCharge.OmegaChargeCurrent > 99)

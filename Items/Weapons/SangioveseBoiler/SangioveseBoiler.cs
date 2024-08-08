@@ -25,7 +25,7 @@ namespace arkimedeezMod.Items.Weapons.SangioveseBoiler
             Item.rare = ItemRarityID.Orange;
 
             //Common stats 
-            Item.damage = 30;
+            Item.damage = 50;
             Item.crit = 3;
             Item.DamageType = ModContent.GetInstance<OmegaDamage>();
 
@@ -107,13 +107,13 @@ namespace arkimedeezMod.Items.Weapons.SangioveseBoiler
         // This method lets you adjust position of the gun in the player's hands. Play with these values until it looks good with your graphics.
         public override Vector2? HoldoutOffset() => new Vector2(-6f, 0f);
 
-        /*public override void AddRecipes()
+        public override void AddRecipes()
         {
             CreateRecipe()
-            .AddIngredient<HeavengoldBar>(8)
-            .AddIngredient(ItemID.Feather, 5)
+            .AddIngredient<ClothiersDelight>(10)
+            .AddIngredient(ItemID.PhoenixBlaster)
             .AddTile(TileID.Anvils)
             .Register();
-        }*/
+        }
     }
 }

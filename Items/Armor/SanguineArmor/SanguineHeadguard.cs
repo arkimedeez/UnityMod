@@ -18,7 +18,7 @@ namespace arkimedeezMod.Items.Armor.SanguineArmor
             Item.height = 22; // Height of the item
             Item.value = Item.sellPrice(gold: 1, silver: 50);
             Item.rare = ItemRarityID.Orange;
-            Item.defense = 8; // The amount of defense the item will give when equipped
+            Item.defense = 6; // The amount of defense the item will give when equipped
         }
 
         public static LocalizedText SetBonusText { get; private set; }
@@ -41,13 +41,13 @@ namespace arkimedeezMod.Items.Armor.SanguineArmor
         public override void UpdateArmorSet(Player player)
         {
             player.setBonus = SetBonusText.Value;
-            player.statDefense += 15;
+            player.statDefense += 10;
         }
-
         public override void AddRecipes()
         {
             CreateRecipe()
-            .AddIngredient<HeavengoldBar>(8)
+            .AddIngredient<ClothiersDelight>(10)
+            .AddIngredient(ItemID.MoltenHelmet)
             .AddTile(TileID.Anvils)
             .Register();
         }

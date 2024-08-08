@@ -67,7 +67,6 @@ namespace arkimedeezMod.Items.Weapons.StarSeeker
         {
             // This code and the similar code above in OnTileCollide spawn dust from the tiles collided with. SoundID.Item10 is the bounce sound you hear.
             Collision.HitTiles(Projectile.position + Projectile.velocity, Projectile.velocity, Projectile.width, Projectile.height);
-            SoundEngine.PlaySound(SoundID.Item10, Projectile.position);
         }
 
         float r = 0;
@@ -81,7 +80,7 @@ namespace arkimedeezMod.Items.Weapons.StarSeeker
             }
             if (!Main.dedServ)
             {
-                Projectile.velocity *= 0.99f;
+                Projectile.velocity *= 1.01f;
                 Projectile.rotation += r;
                 r += 0.3f;
                 Projectile.scale *= 0.99f;

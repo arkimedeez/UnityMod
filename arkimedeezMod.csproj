@@ -1,4 +1,4 @@
-
+﻿
 <Project Sdk="Microsoft.NET.Sdk">
   <Import Project="..\tModLoader.targets" />
   <PropertyGroup>
@@ -7,15 +7,17 @@
   </PropertyGroup>
   <ItemGroup>
     <None Remove="Buffs\cooldown.png" />
+    <None Remove="Items\Accessories\VascularAceelerator\VascularAccelerator.png" />
     <None Remove="Items\Aerokana.png" />
     <None Remove="Items\Weapons\Aerokana\WindSlash.png" />
     <None Remove="Items\Weapons\CorimsWarlockRevolver\CorimsWarlockRevolver.png" />
     <None Remove="Items\Weapons\SkySplitter\SkySplitter.png" />
+    <None Remove="Items\Weapons\Venetration\Venetration.png" />
+    <None Remove="Items\Weapons\Venetration\VenetrationSwingProjectile.png" />
+    <None Remove="Items\Weapons\Venetration\VenetrationThrownProjectile.png" />
     <None Remove="Localization\es-ES\es-ES_Mods.arkimedeezMod.hjson" />
     <None Remove="Projectiles\AerokanaSlash.png" />
     <None Remove="Projectiles\SkySplitterSpear.png" />
     <None Remove="Projectiles\WindSlash.png" />
-  </ItemGroup>
-  <ItemGroup>
   </ItemGroup>
 </Project>

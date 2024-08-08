@@ -16,13 +16,13 @@ namespace arkimedeezMod.Items.Accessories.HeartOfGold
             Item.height = 32;
             Item.accessory = true;
             Item.value = Item.sellPrice(gold: 1, silver: 50);
-            Item.rare = ItemRarityID.Orange;
+            Item.rare = ItemRarityID.LightRed;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.GetDamage(DamageClass.Generic) += 15 / 100f;
-                player.lifeRegen += -3;
+            player.GetDamage(DamageClass.Generic) += 25 / 100f;
+            player.lifeRegen += -4;
         }
 
         public override void AddRecipes()

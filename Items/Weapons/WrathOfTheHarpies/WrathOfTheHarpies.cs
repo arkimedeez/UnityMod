@@ -21,10 +21,10 @@ namespace arkimedeezMod.Items.Weapons.WrathOfTheHarpies
             Item.height = 32; // Hitbox height of the item.
             Item.scale = 1f;
             Item.value = Item.sellPrice(gold: 1, silver: 50);
-            Item.rare = ItemRarityID.Orange;
+            Item.rare = ItemRarityID.LightRed;
 
             //Common stats 
-            Item.damage = 13;
+            Item.damage = 40;
             Item.crit = 2;
             Item.knockBack = 1f;
             Item.DamageType = ModContent.GetInstance<OmegaDamage>();
@@ -44,7 +44,6 @@ namespace arkimedeezMod.Items.Weapons.WrathOfTheHarpies
             Item.noMelee = true;
             Item.autoReuse = true;  // Whether or not you can hold click to automatically use it again.
             Item.consumeAmmoOnLastShotOnly = true;
-
         }
 
        // int abilityMode = 0;
@@ -65,9 +64,6 @@ namespace arkimedeezMod.Items.Weapons.WrathOfTheHarpies
                 Item.autoReuse = true; // Whether or not you can hold click to automatically use it again.
                 Item.UseSound = SoundID.Item5; // The sound when the weapon is being used.
                 Item.reuseDelay = 32;
-   
-                Item.crit = 2;
-                Item.damage = 13;
             }
             else
             {
@@ -94,7 +90,7 @@ namespace arkimedeezMod.Items.Weapons.WrathOfTheHarpies
 
         public override void ModifyShootStats(Player player, ref Vector2 position, ref Vector2 velocity, ref int type, ref int damage, ref float knockback)
         {
-            int deviation = ShootType == 0 ? 10 : 50;
+            int deviation = ShootType == 0 ? 5 : 50;
             velocity = new Vector2(velocity.X, velocity.Y).RotatedByRandom(MathHelper.ToRadians(deviation));
             Vector2 muzzleOffset = Vector2.Normalize(velocity) * 25f;
 
@@ -129,7 +125,7 @@ namespace arkimedeezMod.Items.Weapons.WrathOfTheHarpies
         {
             CreateRecipe()
             .AddIngredient<HeavengoldBar>(8)
-            .AddIngredient(ItemID.Feather, 5)
+            .AddIngredient(ItemID.SoulofFlight, 6)
             .AddTile(TileID.Anvils)
             .Register();
         }

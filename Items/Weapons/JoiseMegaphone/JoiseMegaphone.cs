@@ -22,7 +22,7 @@ namespace arkimedeezMod.Items.Weapons.JoiseMegaphone
             Item.height = 32; // Hitbox height of the item.
             Item.scale = 0.75f;
             Item.value = Item.sellPrice(gold: 1, silver: 50);
-            Item.rare = ItemRarityID.Orange;
+            Item.rare = ItemRarityID.LightRed;
 
             // Use Properties
             Item.useTime = 64; // The item's use time in ticks (60 ticks == 1 second.)
@@ -33,7 +33,7 @@ namespace arkimedeezMod.Items.Weapons.JoiseMegaphone
 
             // Weapon Properties
             Item.DamageType = ModContent.GetInstance<OmegaDamage>();
-            Item.damage = 70; // Sets the item's damage. Note that projectiles shot by this weapon will use its and the used ammunition's damage added together.
+            Item.damage = 300; // Sets the item's damage. Note that projectiles shot by this weapon will use its and the used ammunition's damage added together.
             Item.knockBack = 5f; // Sets the item's knockback. Note that projectiles shot by this weapon will use its and the used ammunition's knockback added together.
             Item.noMelee = true; // So the item's animation doesn't do damage.
             Item.crit = 5;
@@ -138,8 +138,15 @@ namespace arkimedeezMod.Items.Weapons.JoiseMegaphone
         public override void AddRecipes()
         {
             CreateRecipe()
-            .AddIngredient<HeavengoldBar>(14)
-            .AddTile(TileID.Anvils)
+            .AddIngredient<HeavengoldBar>(6)
+            .AddIngredient(ItemID.AdamantiteRepeater)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
+
+            CreateRecipe()
+            .AddIngredient<HeavengoldBar>(6)
+            .AddIngredient(ItemID.TitaniumRepeater)
+            .AddTile(TileID.MythrilAnvil)
             .Register();
         }
     }

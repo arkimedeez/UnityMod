@@ -8,16 +8,24 @@ namespace arkimedeezMod.Items.Materials
     {
         public override void SetDefaults()
         {
-            Item.rare = ItemRarityID.Orange; // The color that the item's name will be in-game.
+            Item.rare = ItemRarityID.LightRed; // The color that the item's name will be in-game.
             Item.value = Item.sellPrice(silver: 20);
             Item.maxStack = 9999;
         }
         public override void AddRecipes()
         {
             CreateRecipe()
+            .AddIngredient(ItemID.PalladiumBar)
+            .AddIngredient(ItemID.SoulofLight)
             .AddIngredient(ItemID.FallenStar)
-            .AddIngredient(ItemID.Bone, 3)
-            .AddTile(TileID.Anvils)
+            .AddTile(TileID.MythrilAnvil)
+            .Register();
+
+            CreateRecipe()
+            .AddIngredient(ItemID.CobaltBar)
+            .AddIngredient(ItemID.SoulofLight)
+            .AddIngredient(ItemID.FallenStar)
+            .AddTile(TileID.MythrilAnvil)
             .Register();
         }
     }

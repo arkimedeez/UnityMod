@@ -16,14 +16,14 @@ namespace arkimedeezMod.Items.Accessories.RingOfRestoration
             Item.height = 22;
             Item.accessory = true;
             Item.value = Item.sellPrice(gold: 1, silver: 50);
-            Item.rare = ItemRarityID.Orange;
+            Item.rare = ItemRarityID.LightRed;
         }
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
             if (UnityPlayer.OmegaWeaponHeldTimer > 0)
             {
-                UnityPlayer.OmegaChargeCurrent += 0.035f;
+                UnityPlayer.OmegaChargeCurrent += 0.04f;
             }
         }
         public override void AddRecipes()

@@ -41,15 +41,16 @@ namespace arkimedeezMod.Items.Armor.SanguineArmor
         public override void UpdateArmorSet(Player player)
         {
             player.setBonus = SetBonusText.Value;
-            player.lifeRegen += 5;
+            player.lifeRegen += 4;
         }
 
-        /*public override void AddRecipes()
+        public override void AddRecipes()
         {
             CreateRecipe()
-            .AddIngredient<HeavengoldBar>(8)
+            .AddIngredient<ClothiersDelight>(10)
+            .AddIngredient(ItemID.MoltenHelmet)
             .AddTile(TileID.Anvils)
             .Register();
-        }*/
+        }
     }
 }

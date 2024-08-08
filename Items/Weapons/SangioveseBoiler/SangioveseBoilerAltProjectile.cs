@@ -13,16 +13,16 @@ namespace arkimedeezMod.Items.Weapons.SangioveseBoiler
 {
     public class SangioveseBoilerAltProjectile : ModProjectile
     {
-        public override void SetStaticDefaults()
+        /*public override void SetStaticDefaults()
         {
             ProjectileID.Sets.TrailCacheLength[Projectile.type] = 5; // The length of old position to be recorded
             ProjectileID.Sets.TrailingMode[Projectile.type] = 0; // The recording mode
-        }
+        }*/
 
         public override void SetDefaults()
         {
-            Projectile.width = 10; // The width of projectile hitbox
-            Projectile.height = 10; // The height of projectile hitbox
+            Projectile.width = 2; // The width of projectile hitbox
+            Projectile.height = 2; // The height of projectile hitbox
             Projectile.aiStyle = 1; // The ai style of the projectile, please reference the source code of Terraria
             Projectile.friendly = true; // Can the projectile deal damage to enemies?
             Projectile.hostile = false; // Can the projectile deal damage to the player?
@@ -32,8 +32,9 @@ namespace arkimedeezMod.Items.Weapons.SangioveseBoiler
             Projectile.light = 0.5f; // How much light emit around the projectile
             Projectile.ignoreWater = true; // Does the projectile's speed be influenced by water?
             Projectile.tileCollide = true; // Can the projectile collide with tiles?
-            Projectile.extraUpdates = 1; // Set to above 0 if you want the projectile to update multiple time in a frame
+            Projectile.extraUpdates = 99; // Set to above 0 if you want the projectile to update multiple time in a frame
             Projectile.knockBack = 2f;
+            Projectile.alpha = 255;
 
             AIType = ProjectileID.WoodenArrowFriendly; // Act exactly like default Bullet
         }
@@ -43,7 +44,7 @@ namespace arkimedeezMod.Items.Weapons.SangioveseBoiler
             target.AddBuff(BuffID.Ichor, 1200);
         }
 
-        public override bool PreDraw(ref Color lightColor)
+        /*public override bool PreDraw(ref Color lightColor)
         {
             Main.instance.LoadProjectile(Projectile.type);
             Texture2D texture = TextureAssets.Projectile[Projectile.type].Value;
@@ -57,7 +58,7 @@ namespace arkimedeezMod.Items.Weapons.SangioveseBoiler
                 Main.EntitySpriteDraw(texture, drawPos, null, color, Projectile.rotation, drawOrigin, Projectile.scale, SpriteEffects.None, 0);
             }
             return true;
-        }
+        }*/
 
         SoundStyle VineBoomSound = new SoundStyle($"{nameof(arkimedeezMod)}/Assets/Audio/Flesh1");
         bool Gunshot = false;

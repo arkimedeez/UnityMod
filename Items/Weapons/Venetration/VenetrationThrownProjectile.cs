@@ -18,13 +18,13 @@ namespace arkimedeezMod.Items.Weapons.Venetration
             ProjectileID.Sets.TrailingMode[Projectile.type] = 2; // The recording mode
         }
 
-        public override string Texture => "arkimedeezMod/Items/Weapons/Venetration/Venetration";
+        //public override string Texture => "arkimedeezMod/Items/Weapons/Venetration/Venetration";
 
         public override void SetDefaults()
         {
             Projectile.DamageType = ModContent.GetInstance<OmegaDamage>();
-            Projectile.width = 204;
-            Projectile.height = 204;
+            Projectile.width = 184;
+            Projectile.height = 184;
             Projectile.tileCollide = false;
             Projectile.penetrate = -1;
             Projectile.friendly = true;
@@ -39,7 +39,7 @@ namespace arkimedeezMod.Items.Weapons.Venetration
         {
             timeSinceThrown++;
             Dust.NewDustDirect(Projectile.position, Projectile.width, Projectile.height, DustID.InfernoFork, Projectile.velocity.X * 0f, Projectile.velocity.Y * 0f, Alpha: 128, Scale: 1.2f);
-            Projectile.rotation += Projectile.velocity.Length() / 25;
+            Projectile.rotation += 0.25f;
             if (timeSinceThrown > 0)
             {
                 if (timeSinceThrown < 120)
@@ -67,7 +67,7 @@ namespace arkimedeezMod.Items.Weapons.Venetration
         {
             //UnityPlayer.OmegaChargeCurrent = UnityPlayer.OmegaChargeCurrent + 1.5f;
             target.AddBuff(BuffID.OnFire, 400);
-            Projectile.damage = Convert.ToInt32(Math.Round(Projectile.damage * 0.9));
+            Projectile.damage = Convert.ToInt32(Math.Round(Projectile.damage * 0.75));
         }
 
         public override bool PreDraw(ref Color lightColor)

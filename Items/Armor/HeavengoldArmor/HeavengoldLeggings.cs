@@ -11,20 +11,20 @@ namespace arkimedeezMod.Items.Armor.HeavengoldArmor
     [AutoloadEquip(EquipType.Legs)]
     public class HeavengoldLeggings : ModItem
     {
-        public int MovmentSpeedBonusPercent = 10;
+        public int MovmentSpeedBonusPercent = 20;
         public override LocalizedText Tooltip => base.Tooltip.WithFormatArgs(MovmentSpeedBonusPercent);
         public override void SetDefaults()
         {
             Item.width = 34; // Width of the item
             Item.height = 22; // Height of the item
             Item.value = Item.sellPrice(gold: 1, silver: 50);
-            Item.rare = ItemRarityID.Orange;
-            Item.defense = 4; // The amount of defense the item will give when equipped
+            Item.rare = ItemRarityID.LightRed;
+            Item.defense = 7; // The amount of defense the item will give when equipped
         }
 
         public override void UpdateEquip(Player player)
         {
-            player.GetDamage(DamageClass.Generic) += 0.05f;
+            player.GetDamage(DamageClass.Generic) += 0.10f;
             player.moveSpeed *= 1 + (MovmentSpeedBonusPercent/100f);
         }
 

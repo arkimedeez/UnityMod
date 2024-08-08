@@ -15,8 +15,8 @@ namespace arkimedeezMod.Items.Armor.HeavengoldArmor
             Item.width = 34; // Width of the item
             Item.height = 22; // Height of the item
             Item.value = Item.sellPrice(gold: 1, silver: 50);
-            Item.rare = ItemRarityID.Orange;
-            Item.defense = 7; // The amount of defense the item will give when equipped
+            Item.rare = ItemRarityID.LightRed;
+            Item.defense = 10; // The amount of defense the item will give when equipped
         }
 
         public override void UpdateEquip(Player player)

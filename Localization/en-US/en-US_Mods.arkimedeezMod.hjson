@@ -66,13 +66,13 @@ Items: {
 		Tooltip:
 			'''
 			Looks can be deceiving.
-			Increases all damage by 15%, but subtracts 3 life regen
+			Increases all damage by 25%, but subtracts 4 life regen
 			'''
 	}
 
 	RingOfRestoration: {
 		DisplayName: Ring of Restoration
-		Tooltip: Provides a +3.5 passive gain to [c/6035ff:omega charge]
+		Tooltip: Provides a passive gain to [c/6035ff:omega charge]
 	}
 
 	DivineSheath: {
@@ -80,7 +80,8 @@ Items: {
 		Tooltip:
 			'''
 			Increases damage for all weapons.
-			The damage increase scales with your current amount of [c/6035ff:omega charge]
+			The damage increase scales with your current amount of [c/6035ff:omega charge], with a 30% increase at full omega charge.
+			This effect only functions if you are utilizing omega weapons at least a little bit in combat.
 			'''
 	}
 
@@ -91,19 +92,21 @@ Items: {
 
 	HeavengoldHelmet: {
 		DisplayName: Heavengold Helmet
-		Tooltip: 7% increased damage.
+		Tooltip: 10% increased damage.
 		SetBonus:
 			'''
 			{$CommonItemTooltip.IncreasesMaxMinionsBy}
 			Increases mana regeneration significantly.
 			{$CommonItemTooltip.PercentIncreasedMeleeSpeed@1}
 			{$CommonItemTooltip.PercentIncreasedCritChance@2}
+			15% increased damage
+			An additional 15% increased damage for any supported modded classes (such as the rogue or bard classes)
 			'''
 	}
 
 	HeavengoldLeggings: {
 		DisplayName: Heavengold Leggings
-		Tooltip: 7% increased movement speed and 5% increased damage
+		Tooltip: 20% increased movement speed and 10% increased damage
 	}
 
 	Venetration: {
@@ -118,7 +121,7 @@ Items: {
 
 	SangioveseBoiler: {
 		DisplayName: Sangiovese Boiler
-		Tooltip: "[c/6035ff:Omega attacks] release two giant chunks of flesh that inflict ichor upon the target."
+		Tooltip: "[c/6035ff:Omega attacks] release two streams of ichor."
 	}
 
 	SangriaEvaporator: {
@@ -132,13 +135,13 @@ Items: {
 	}
 
 	SanguineHelmet: {
-		SetBonus: +5 life regen
+		SetBonus: +4 life regen
 		DisplayName: Sanguine Helmet
 		Tooltip: +1 life regen
 	}
 
 	SanguineHeadguard: {
-		SetBonus: Increases defense by 15
+		SetBonus: Increases defense by 10
 		DisplayName: Sanguine Headguard
 		Tooltip: +5% damage reduction
 	}
@@ -164,7 +167,25 @@ Items: {
 
 	BloodlustDagger: {
 		DisplayName: Bloodlust Dagger
-		Tooltip: Attacks inflict... frostburn? How does that make sense? ...oh yeah, that's just a placeholder debuff
+		Tooltip: Attacks inflict boiling blood.
+	}
+
+	DemonicVengance: {
+		DisplayName: Demonic Vengance
+		Tooltip:
+			'''
+			Reciveing more than 5% of your health in a single hit empowers both your offensive and defensive capabilites for a short time.
+			Getting hit by more than 5% of your health additionally grants you some omega charge.
+			'''
+	}
+
+	ClothiersDelight: {
+		DisplayName: Clothier's Delight
+		Tooltip:
+			'''
+			Used to craft sanguine equipment.
+			"I guess he wasn't just a crazy old coot after all..."
+			'''
 	}
 }
 
@@ -198,6 +219,7 @@ Projectiles: {
 	SangioveseBoilerProjectile.DisplayName: Sangiovese Boiler Projectile
 	SangioveseBoilerAltProjectile.DisplayName: Sangiovese Boiler Alt Projectile
 	SangriaEvaporatorProjectile.DisplayName: Sangria Evaporator Projectile
+	VenetrationSwingProjectile.DisplayName: Venetration Swing Projectile
 }
 
 Buffs: {
@@ -290,6 +312,16 @@ Buffs: {
 		DisplayName: Shattered Armor
 		Description: Your armor has been shattered!
 	}
+
+	BoilingBlood: {
+		DisplayName: Boiling Blood
+		Description: Your blood is rising to the surface of your skin!
+	}
+
+	DemonicEnhancing: {
+		DisplayName: Demonic Enhancing
+		Description: Enhanced damage and defense
+	}
 }
 
 UI.ExampleResource: Mods.arkimedeezMod.UI.ExampleResource
@@ -330,4 +362,3 @@ Configs: {
 		}
 	}
 }
-

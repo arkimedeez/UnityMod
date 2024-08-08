@@ -22,8 +22,8 @@ namespace arkimedeezMod.Items.Weapons.JoiseMegaphone
 
         public override void SetDefaults()
         {
-            Projectile.width = 8; // The width of projectile hitbox
-            Projectile.height = 28; // The height of projectile hitbox
+            Projectile.width = 20; // The width of projectile hitbox
+            Projectile.height = 20; // The height of projectile hitbox
             Projectile.aiStyle = 1; // The ai style of the projectile, please reference the source code of Terraria
             Projectile.friendly = true; // Can the projectile deal damage to enemies?
             Projectile.hostile = false; // Can the projectile deal damage to the player?

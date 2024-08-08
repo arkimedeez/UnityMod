@@ -1,19 +1,19 @@
 ﻿using arkimedeezMod.DamageClasses;
 using arkimedeezMod.Items.Materials;
-using Microsoft.Build.Framework;
 using System;
 using Terraria;
 using Terraria.ID;
+using Terraria.Localization;
 using Terraria.ModLoader;
 
-namespace arkimedeezMod.Items.Accessories.CrimsonAegis
+namespace arkimedeezMod.Items.Accessories.DemonicVengance
 {
-    public class CrimsonAegis : ModItem
+    public class DemonicVengance : ModItem
     {
         public override void SetDefaults()
         {
-            Item.width = 42;
-            Item.height = 38;
+            Item.width = 34;
+            Item.height = 40;
             Item.accessory = true;
             Item.value = Item.sellPrice(gold: 1, silver: 50);
             Item.rare = ItemRarityID.Orange;
@@ -21,20 +21,14 @@ namespace arkimedeezMod.Items.Accessories.CrimsonAegis
 
         public override void UpdateAccessory(Player player, bool hideVisual)
         {
-            player.statDefense += (player.statLifeMax2 - player.statLife) / 17;
+            player.GetModPlayer<PlayerEvents>().DemonicVengance = true;
         }
 
         /*public override void AddRecipes()
         {
             CreateRecipe()
-            .AddIngredient<HeavengoldBar>(8)
-            .AddIngredient(ItemID.CopperBar, 10)
-            .AddTile(TileID.Anvils)
-            .Register();
-
-            CreateRecipe()
-             .AddIngredient<HeavengoldBar>(8)
-            .AddIngredient(ItemID.TinBar, 10)
+            .AddIngredient<HeavengoldBar>(6)
+            .AddIngredient(ItemID.BandofRegeneration, 1)
             .AddTile(TileID.Anvils)
             .Register();
         }*/

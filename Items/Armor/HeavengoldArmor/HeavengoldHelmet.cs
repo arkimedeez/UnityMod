@@ -21,8 +21,8 @@ namespace arkimedeezMod.Items.Armor.HeavengoldArmor
             Item.width = 34; // Width of the item
             Item.height = 22; // Height of the item
             Item.value = Item.sellPrice(gold: 1, silver: 50);
-            Item.rare = ItemRarityID.Orange;
-            Item.defense = 3; // The amount of defense the item will give when equipped
+            Item.rare = ItemRarityID.LightRed;
+            Item.defense = 6; // The amount of defense the item will give when equipped
         }
 
         public static LocalizedText SetBonusText { get; private set; }
@@ -34,7 +34,7 @@ namespace arkimedeezMod.Items.Armor.HeavengoldArmor
 
         public override void UpdateEquip(Player player)
         {
-            player.GetDamage(DamageClass.Generic) += 0.07f;
+            player.GetDamage(DamageClass.Generic) += 0.1f;
         }
 
         public override bool IsArmorSet(Item head, Item body, Item legs)
@@ -46,9 +46,69 @@ namespace arkimedeezMod.Items.Armor.HeavengoldArmor
         {
             player.setBonus = SetBonusText.Value;
             player.maxMinions += MaxMinionBonus;
-            player.manaRegenBonus += 80;
+            player.manaRegenBonus += 120;
             player.GetAttackSpeed<MeleeDamageClass>() += MeleeAttackSpeedBonus / 100f;
             player.GetCritChance<RangedDamageClass>() += RangedCritBonus;
+            player.GetDamage(DamageClass.Generic) += 0.15f;
+            player.GetDamage(DamageClass.Throwing) += 0.15f;
+            if (ModLoader.TryGetMod("ThoriumMod", out Mod thoriumMod))
+            {
+                if (thoriumMod.TryFind("BardDamage", out DamageClass BardDamage))
+                {
+                    player.GetDamage(BardDamage) += 0.15f;
+                }
+                if (thoriumMod.TryFind("HealerDamage", out DamageClass HealerDamage))
+                {
+                    player.GetDamage(HealerDamage) += 0.15f;
+                }
+            }
+
+            if (ModLoader.TryGetMod("ClickerClass", out Mod clickerClass))
+            {
+                if (clickerClass.TryFind("ClickerDamage", out DamageClass ClickerDamage))
+                {
+                    player.GetDamage(ClickerDamage) += 0.15f;
+                }
+            }
+
+            if (ModLoader.TryGetMod("OrchidMod", out Mod orchidMod))
+            {
+                if (orchidMod.TryFind("GuardianDamageClass", out DamageClass GuardianDamage))
+                {
+                    player.GetDamage(GuardianDamage) += 0.15f;
+                }
+
+                if (orchidMod.TryFind("GamblerDamageClass", out DamageClass GamblerDamage))
+                {
+                    player.GetDamage(GamblerDamage) += 0.15f;
+                }
+
+                if (orchidMod.TryFind("AlchemistDamageClass", out DamageClass AlchemistDamage))
+                {
+                    player.GetDamage(AlchemistDamage) += 0.15f;
+                }
+
+                if (orchidMod.TryFind("ShamanDamageClass", out DamageClass ShamanDamage))
+                {
+                    player.GetDamage(ShamanDamage) += 0.15f;
+                }
+            }
+
+            if (ModLoader.TryGetMod("MetroidMod", out Mod metroidMod))
+            {
+                if (metroidMod.TryFind("HunterDamageClass", out DamageClass HunterDamage))
+                {
+                    player.GetDamage(HunterDamage) += 0.15f;
+                }
+            }
+
+            if (ModLoader.TryGetMod("VitalityMod", out Mod vitalityMod))
+            {
+                if (vitalityMod.TryFind("BloodHunterClass", out DamageClass BloodDamage))
+                {
+                    player.GetDamage(BloodDamage) += 0.15f;
+                }
+            }
         }
 
         public override void AddRecipes()

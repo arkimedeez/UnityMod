@@ -7,16 +7,12 @@ using Terraria.ModLoader;
 //Regeneration buff, level one
 namespace arkimedeezMod.Buffs
 {
-    public class ShatteredArmor : ModBuff
+    public class DemonicEnhancing : ModBuff
     {
-        public override void SetStaticDefaults()
-        {
-            Main.debuff[Type] = true;  // Is it a debuff?
-        }
-
         public override void Update(Player player, ref int buffIndex)
         {
-            player.endurance -= 0.4f;
+            player.GetDamage(DamageClass.Generic) += 15 / 100f;
+            player.statDefense += 10;
         }
     }
 }

@@ -30,7 +30,8 @@ namespace arkimedeezMod.Items.Armor.SanguineArmor
         public override void AddRecipes()
         {
             CreateRecipe()
-            .AddIngredient<HeavengoldBar>(10)
+            .AddIngredient<ClothiersDelight>(10)
+            .AddIngredient(ItemID.MoltenGreaves)
             .AddTile(TileID.Anvils)
             .Register();
         }

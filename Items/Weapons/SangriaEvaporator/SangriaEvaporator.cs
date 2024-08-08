@@ -32,7 +32,7 @@ namespace arkimedeezMod.Items.Weapons.SangriaEvaporator
             Item.rare = ItemRarityID.Orange;
 
             //Common stats 
-            Item.damage = 20;
+            Item.damage = 25;
             Item.crit = 3;
             Item.knockBack = 1.5f;
             Item.DamageType = ModContent.GetInstance<OmegaDamage>();
@@ -118,13 +118,13 @@ namespace arkimedeezMod.Items.Weapons.SangriaEvaporator
         // This method lets you adjust position of the gun in the player's hands. Play with these values until it looks good with your graphics.
         public override Vector2? HoldoutOffset() => new Vector2(0f, 0f);
 
-        /*public override void AddRecipes()
+        public override void AddRecipes()
         {
             CreateRecipe()
-            .AddIngredient<HeavengoldBar>(8)
-            .AddIngredient(ItemID.Feather, 5)
+            .AddIngredient<ClothiersDelight>(10)
+            .AddIngredient(ItemID.AquaScepter)
             .AddTile(TileID.Anvils)
             .Register();
-        }*/
+        }
     }
 }
